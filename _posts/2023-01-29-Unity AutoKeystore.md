@@ -1,3 +1,8 @@
+---
+layout: post
+title: Unity AutoKeystore
+tags: [unity, asset store, android, tools]
+---
 AutoKeystore allows store android keystore between sessions, without manual input everytime.
 
 [![NPM Package](https://img.shields.io/npm/v/com.dreamcode.mobile.android-keystore)](https://www.npmjs.com/package/com.dreamcode.mobile.android-keystore)

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Unity AutoKeystore
+title: Auto Keystore
 tags: [unity, asset store, android, tools]
 ---
 AutoKeystore allows store android keystore between sessions, without manual input everytime.

@@ -5,17 +5,21 @@ order: 1
 ---
 
 ## Games
-[Fortune Memory Remastered](https://play.google.com/store/apps/details?id=com.IndieYP.FortuneMemory2){:target="_blank"}
+Pivo Up!
 <p>
-    <a href="#"><img src="https://img.shields.io/badge/Made%20with%20Unity-100000?style=for-the-badge&logo=unity&logoColor=white"/></a>
+    <a href="https://play.google.com/store/apps/details?id=com.IndieYP.JumpClub.jump.fall.hop" target="_blank"><img src="https://img.shields.io/badge/Google%20Play-100000?style=for-the-badge&logoColor=white"/></a>
+    <a href="https://yandex.com/games/app/250172" target="_blank"><img src="https://img.shields.io/badge/Yandex.Games-100000?style=for-the-badge&logoColor=white"/></a>
+    <a href="https://apps.rustore.ru/app/com.IndieYP.JumpClub.jump.fall.hop" target="_blank"><img src="https://img.shields.io/badge/RuStore-100000?style=for-the-badge&logoColor=white"/></a>
 </p>
-[Pivo Up!](https://play.google.com/store/apps/details?id=com.IndieYP.JumpClub.jump.fall.hop){:target="_blank"}
+Fortune Memory
 <p>
-    <a href="#"><img src="https://img.shields.io/badge/Made%20with%20Unity-100000?style=for-the-badge&logo=unity&logoColor=white"/></a>
+    <a href="https://play.google.com/store/apps/details?id=com.IndieYP.FortuneMemory2" target="_blank"><img src="https://img.shields.io/badge/Google%20Play-100000?style=for-the-badge&logoColor=white"/></a>
 </p>
 
 ## Apps
-[Game Aim Conveter](../gac){:target="_blank"}
+Game Aim Conveter
 <p>
-    <a href="#"><img src="https://img.shields.io/badge/Made%20with%20Flutter-100000?style=for-the-badge&logo=flutter&logoColor=white"/></a>
+    <a href="https://play.google.com/store/apps/details?id=com.dreamcode.gameaimconverter" target="_blank"><img src="https://img.shields.io/badge/Google%20Play-100000?style=for-the-badge&logoColor=white"/></a>
+    <a href="https://apps.apple.com/us/app/game-aim-converter/id1618000036" target="_blank"><img src="https://img.shields.io/badge/App%20Store-100000?style=for-the-badge&logoColor=white"/></a>
+    <a href="https://apps.rustore.ru/app/com.dreamcode.gameaimconverter" target="_blank"><img src="https://img.shields.io/badge/RuStore-100000?style=for-the-badge&logoColor=white"/></a>
 </p>

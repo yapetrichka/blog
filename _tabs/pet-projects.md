@@ -14,6 +14,7 @@ Pivo Up!
 Fortune Memory
 <p>
     <a href="https://play.google.com/store/apps/details?id=com.IndieYP.FortuneMemory2" target="_blank"><img src="https://img.shields.io/badge/Google%20Play-100000?style=for-the-badge&logoColor=white"/></a>
+    <a href="https://apps.rustore.ru/app/com.IndieYP.FortuneMemory2" target="_blank"><img src="https://img.shields.io/badge/RuStore-100000?style=for-the-badge&logoColor=white"/></a>
 </p>
 
 ## Apps

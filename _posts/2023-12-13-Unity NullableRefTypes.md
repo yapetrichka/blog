@@ -62,12 +62,15 @@ Explicitly tell the analyzer that you guarantee their assignment and suppress th
 #### VContainer DI example:
 
 ```csharp
-private MoveController _moveController = null!;
-   
-[Inject]
-public void Init(MoveController moveController)
+namespace Sandbox.Domain
 {
-	_moveController = moveController;
+    private MoveController _moveController = null!;
+
+    [Inject]
+    public void Init(MoveController moveController)
+    {
+        _moveController = moveController;
+    }
 }
 ```
 
@@ -83,7 +86,7 @@ namespace Sandbox.Server.Responses
     [Serializable]
     public class UserResponse
     {
-	      public int Id;
+        public int Id;
         public string Name;
     }
 }

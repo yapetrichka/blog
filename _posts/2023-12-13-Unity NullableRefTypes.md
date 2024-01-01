@@ -94,4 +94,6 @@ namespace Sandbox.Server.Responses
 
 # 🎁 Helpful Links
 
+[Nullable reference types in Unity](https://youtu.be/NZ-rypeT8iw)
+
 [Microsoft guide](https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references)

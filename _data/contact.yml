@@ -4,6 +4,10 @@
   type: github
   icon: 'fab fa-github'
 -
+  type: telegram
+  icon: 'fab fa-telegram'
+  url: https://t.me/dream_code_studio
+-
   type: email
   icon: 'fas fa-envelope'
   noblank: true            # open link in current tab

@@ -19,12 +19,12 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Dream Code Studio                          # the main title
+#title: Dream Code Studio                          # the main title
 
-tagline: Petrichka Yaroslav   # it will display as the sub-title
+tagline: Sharing my knowledge on Unity and .NET development   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  Hello! I'm Yaroslav. Sharing my knowledge on Unity and .NET development.
+  Sharing my knowledge on Unity and .NET development.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: ''
@@ -35,7 +35,7 @@ github:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: Petrichka Yaroslav
+  name: dreamcodestudio 
   email: dreamcodestudio@yandex.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link

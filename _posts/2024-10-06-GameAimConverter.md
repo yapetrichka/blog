@@ -24,4 +24,4 @@ Stay tuned.
 
 [Google Play](https://play.google.com/store/apps/details?id=com.dreamcode.gameaimconverter)
 
-[Support](https://t.me/dreamcestudio/9)
+[Support](https://t.me/game_aim_converter)

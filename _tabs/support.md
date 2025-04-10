@@ -1,6 +1,6 @@
 ---
 
-icon: fas fa-mug-hot
+icon: fas fa-ticket
 order: 1
 ---
 

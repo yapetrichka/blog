@@ -10,6 +10,10 @@ Game Aim Conveter
     <a href="https://apps.apple.com/app/game-aim-converter/id1618000036" target="_blank"><img src="https://img.shields.io/badge/App%20Store-100000?style=for-the-badge&logoColor=white"/></a>
     <a href="https://game-aim-converter.en.uptodown.com/android" target="_blank"><img src="https://img.shields.io/badge/uptodown-100000?style=for-the-badge&logoColor=white"/></a>
 </p>
+CS2 Crosshairs
+<p>
+    <a href="https://apps.apple.com/app/cs2-crosshairs-pro-aim-helper/id6740480835" target="_blank"><img src="https://img.shields.io/badge/App%20Store-100000?style=for-the-badge&logoColor=white"/></a>
+</p>
 Univerter
 <p>
     <a href="https://apps.apple.com/app/unit-converter-mobile/id6738687525" target="_blank"><img src="https://img.shields.io/badge/App%20Store-100000?style=for-the-badge&logoColor=white"/></a>

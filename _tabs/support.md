@@ -26,11 +26,11 @@ I’ll prioritize urgent issues, but please be patient—I’m probably coding s
 
 <p>
     <a href="https://t.me/unit_m_converter" target="_blank"><img src="https://img.shields.io/badge/Telegram-100000?style=for-the-badge&logoColor=white"/></a>
+    <a href="https://discord.gg/hzcyw6AQ" target="_blank"><img src="https://img.shields.io/badge/Discord-100000?style=for-the-badge&logoColor=white"/></a>
 </p>
 
 
 <style>
-/* Style for the jump links */
 #content ul {
     padding: 15px;
     background: #f5f5f5;
@@ -57,7 +57,6 @@ I’ll prioritize urgent issues, but please be patient—I’m probably coding s
     text-decoration: underline;
 }
 
-/* Style for back to top links */
 p > a[href="#"] {
     display: inline-block;
     margin-top: 15px;
@@ -70,7 +69,6 @@ p > a[href="#"]:hover {
     text-decoration: underline;
 }
 
-/* Section styling */
 h2 {
     padding-top: 20px;
     margin-top: 30px;

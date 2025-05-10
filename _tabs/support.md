@@ -6,6 +6,7 @@ I’ll prioritize urgent issues, but please be patient—I’m probably coding s
 
 - [Game Aim Converter](#game-aim-converter)
 - [CS2 Crosshairs](#cs2-crosshairs)
+- [InstaBreath](#insta-breath)
 - [Univerter](#univerter)
 
 ## Game Aim Converter {#game-aim-converter}
@@ -20,6 +21,13 @@ I’ll prioritize urgent issues, but please be patient—I’m probably coding s
 <p>
     <a href="https://t.me/cs_crosshairs" target="_blank"><img src="https://img.shields.io/badge/Telegram-100000?style=for-the-badge&logoColor=white"/></a>
     <a href="https://discord.gg/99h74wfU" target="_blank"><img src="https://img.shields.io/badge/Discord-100000?style=for-the-badge&logoColor=white"/></a>
+</p>
+
+## InstaBreath {#insta-breath}
+
+<p>
+    <a href="https://t.me/insta_breath_dc" target="_blank"><img src="https://img.shields.io/badge/Telegram-100000?style=for-the-badge&logoColor=white"/></a>
+    <a href="https://discord.gg/6syPMn5J" target="_blank"><img src="https://img.shields.io/badge/Discord-100000?style=for-the-badge&logoColor=white"/></a>
 </p>
 
 ## Univerter {#univerter}

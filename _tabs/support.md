@@ -2,7 +2,7 @@
 icon: fas fa-ticket
 order: 1
 ---
-I’ll prioritize urgent issues, but please be patient—I’m probably coding somewhere. Thank you! ❤️
+I'll prioritize urgent issues, but please be patient—I'm probably coding somewhere. Thank you! ❤️
 
 - [Game Aim Converter](#game-aim-converter)
 - [CS2 Crosshairs](#cs2-crosshairs)
@@ -25,10 +25,11 @@ I’ll prioritize urgent issues, but please be patient—I’m probably coding s
 
 ## InstaBreath {#insta-breath}
 
-<p>
-    <a href="https://t.me/insta_breath_dc" target="_blank"><img src="https://img.shields.io/badge/Telegram-100000?style=for-the-badge&logoColor=white"/></a>
-    <a href="https://discord.gg/6syPMn5J" target="_blank"><img src="https://img.shields.io/badge/Discord-100000?style=for-the-badge&logoColor=white"/></a>
-</p>
+If you're experiencing issues with the InstaBreath app or have questions, please use one of the following methods to contact us:
+
+- **Email Support**: [dreamcodestudio@yandex.com](mailto:dreamcodestudio@yandex.com)
+- **Response Time**: 24-48 hours
+- **Join Our Community**: Get help from other users [Telegram](https://t.me/insta_breath_dc) or [Discord](https://discord.gg/6syPMn5J)
 
 ## Univerter {#univerter}
 
@@ -81,5 +82,17 @@ h2 {
     padding-top: 20px;
     margin-top: 30px;
     border-top: 1px solid #eee;
+}
+
+.support-container {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+    border-left: 4px solid #4a6baf;
+}
+
+.contact-method {
+    margin-bottom: 15px;
 }
 </style>

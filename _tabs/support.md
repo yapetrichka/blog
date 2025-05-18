@@ -1,6 +1,6 @@
 ---
 icon: fas fa-ticket
-order: 1
+order: 3
 ---
 I'll prioritize urgent issues, but please be patient—I'm probably coding somewhere. Thank you! ❤️
 

@@ -147,12 +147,12 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
             <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/posts"
-                className="inline-flex items-center px-8 py-4 bg-cyberpunk-yellow text-cyberpunk-base rounded border border-cyberpunk-white hover:shadow-neon-yellow transition-all duration-300 font-tech font-bold uppercase tracking-wider cyberpunk-button group relative overflow-hidden"
+                className="inline-flex items-center px-8 py-4 bg-cyberpunk-yellow text-black rounded border border-cyberpunk-white hover:shadow-neon-yellow transition-all duration-300 font-tech font-bold uppercase tracking-wider cyberpunk-button group relative overflow-hidden"
               >
                 <div className="absolute inset-0 bg-cyberpunk-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                <Zap className="mr-2 w-5 h-5 group-hover:animate-cyberpunk-pulse" />
-                <span className="relative z-10">ACCESS ARCHIVES</span>
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
+                <Zap className="mr-2 w-5 h-5 text-black group-hover:animate-cyberpunk-pulse" />
+                <span className="relative z-10 text-black">ACCESS ARCHIVES</span>
+                <ArrowRight className="ml-2 w-5 h-5 text-black group-hover:translate-x-1 transition-transform duration-300 relative z-10" />
               </Link>
               <button
                 onClick={() => techStackRef.current?.scrollIntoView({ behavior: 'smooth' })}

@@ -65,17 +65,17 @@ export default function PostClient({ post }: PostClientProps) {
   // Convert markdown to HTML (basic implementation)
   const renderMarkdown = (content: string) => {
     return content
-      .replace(/^### (.*$)/gm, '<h3 class="text-xl font-bold mt-8 mb-4">$1</h3>')
-      .replace(/^## (.*$)/gm, '<h2 class="text-2xl font-bold mt-8 mb-4">$1</h2>')
-      .replace(/^# (.*$)/gm, '<h1 class="text-3xl font-bold mt-8 mb-4">$1</h1>')
-      .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold">$1</strong>')
-      .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
-      .replace(/`(.*?)`/g, '<code class="bg-muted px-1.5 py-0.5 rounded text-sm font-mono">$1</code>')
-      .replace(/\n\n/g, '</p><p class="mb-4">')
-      .replace(/^- (.*$)/gm, '<li class="ml-4">$1</li>')
-      .replace(/^\* (.*$)/gm, '<li class="ml-4">$1</li>')
-      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="rounded-lg my-6 w-full" />')
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-primary hover:underline">$1</a>')
+      .replace(/^### (.*$)/gm, '<h3 class="text-xl font-bold mt-8 mb-4 text-cyberpunk-white font-cyber">$1</h3>')
+      .replace(/^## (.*$)/gm, '<h2 class="text-2xl font-bold mt-8 mb-4 text-cyberpunk-white font-cyber">$1</h2>')
+      .replace(/^# (.*$)/gm, '<h1 class="text-3xl font-bold mt-8 mb-4 text-cyberpunk-yellow font-cyber">$1</h1>')
+      .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-cyberpunk-yellow">$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em class="italic text-cyberpunk-white">$1</em>')
+      .replace(/`(.*?)`/g, '<code class="bg-cyberpunk-yellow/20 text-cyberpunk-yellow px-1.5 py-0.5 rounded text-sm font-mono">$1</code>')
+      .replace(/\n\n/g, '</p><p class="mb-4 text-cyberpunk-white/90">')
+      .replace(/^- (.*$)/gm, '<li class="ml-4 text-cyberpunk-white/90">$1</li>')
+      .replace(/^\* (.*$)/gm, '<li class="ml-4 text-cyberpunk-white/90">$1</li>')
+      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="rounded-lg my-6 w-full border border-cyberpunk-yellow/30" />')
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-cyberpunk-yellow hover:underline hover:text-cyberpunk-white transition-colors">$1</a>')
   }
 
   const breadcrumbItems = [
@@ -84,15 +84,15 @@ export default function PostClient({ post }: PostClientProps) {
   ]
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-background">
+    <div ref={containerRef} className="min-h-screen bg-cyberpunk-base">
       {/* Header */}
-      <div ref={headerRef} className="bg-gradient-to-r from-primary/10 via-primary/5 to-transparent">
+      <div ref={headerRef} className="bg-gradient-to-r from-cyberpunk-yellow/10 via-cyberpunk-yellow/5 to-transparent">
         <div className="max-w-4xl mx-auto px-6 py-16">
           {/* Breadcrumb Navigation */}
           <Breadcrumb items={breadcrumbItems} />
 
           {/* Post Meta */}
-          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-cyberpunk-yellow mb-6">
             <div className="flex items-center gap-1">
               <Calendar className="w-4 h-4" />
               <time dateTime={post.frontmatter.date}>
@@ -106,7 +106,7 @@ export default function PostClient({ post }: PostClientProps) {
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-cyberpunk-yellow font-cyber">
             {post.frontmatter.title}
           </h1>
 
@@ -116,7 +116,7 @@ export default function PostClient({ post }: PostClientProps) {
               {post.frontmatter.tags.map((tag: string) => (
                 <span
                   key={tag}
-                  className="inline-flex items-center gap-1 px-3 py-1 text-xs font-medium bg-bg-tertiary text-accent-secondary rounded-full border border-border-primary"
+                  className="inline-flex items-center gap-1 px-3 py-1 text-xs font-medium bg-cyberpunk-yellow/10 text-cyberpunk-yellow rounded-full border border-cyberpunk-yellow/30"
                 >
                   <Tag className="w-3 h-3" />
                   {tag}
@@ -135,7 +135,7 @@ export default function PostClient({ post }: PostClientProps) {
                 })
               }
             }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-cyberpunk-yellow/20 hover:bg-cyberpunk-yellow/30 text-cyberpunk-yellow rounded-lg transition-colors border border-cyberpunk-yellow/50"
           >
             <Share2 className="w-4 h-4" />
             Share
@@ -147,17 +147,17 @@ export default function PostClient({ post }: PostClientProps) {
       <div ref={contentRef} className="max-w-4xl mx-auto px-6 py-12">
         <article className="prose prose-lg prose-invert max-w-none">
           <div 
-            className="leading-relaxed [&>p]:mb-4 [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:mt-8 [&>h1]:mb-4 [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:mt-8 [&>h2]:mb-4 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:mt-6 [&>h3]:mb-3 [&>ul]:my-4 [&>ul]:ml-6 [&>li]:mb-2 [&>code]:bg-muted [&>code]:px-1.5 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:font-mono [&>img]:rounded-lg [&>img]:my-6 [&>a]:text-primary [&>a]:hover:underline"
+            className="leading-relaxed text-cyberpunk-white/90 [&>p]:mb-4 [&>p]:text-cyberpunk-white/90 [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:mt-8 [&>h1]:mb-4 [&>h1]:text-cyberpunk-yellow [&>h1]:font-cyber [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:mt-8 [&>h2]:mb-4 [&>h2]:text-cyberpunk-white [&>h2]:font-cyber [&>h3]:text-xl [&>h3]:font-bold [&>h3]:mt-6 [&>h3]:mb-3 [&>h3]:text-cyberpunk-white [&>h3]:font-cyber [&>ul]:my-4 [&>ul]:ml-6 [&>li]:mb-2 [&>li]:text-cyberpunk-white/90 [&>code]:bg-cyberpunk-yellow/20 [&>code]:text-cyberpunk-yellow [&>code]:px-1.5 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:font-mono [&>img]:rounded-lg [&>img]:my-6 [&>img]:border [&>img]:border-cyberpunk-yellow/30 [&>a]:text-cyberpunk-yellow [&>a]:hover:underline [&>a]:hover:text-cyberpunk-white [&>a]:transition-colors"
             dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content) }}
           />
         </article>
 
         {/* Footer Navigation */}
-        <div className="mt-16 pt-8 border-t border-border">
+        <div className="mt-16 pt-8 border-t border-cyberpunk-yellow/20">
           <div className="flex justify-between items-center">
             <Link 
               href="/posts"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-lg hover:bg-muted transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 cyber-panel rounded-lg hover:bg-cyberpunk-yellow/10 transition-colors text-cyberpunk-white hover:text-cyberpunk-yellow"
             >
               <ArrowLeft className="w-4 h-4" />
               All Posts
@@ -165,7 +165,7 @@ export default function PostClient({ post }: PostClientProps) {
             
             <button 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-accent-primary text-bg-primary rounded-lg hover:bg-accent-hover transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-cyberpunk-yellow text-black rounded-lg hover:bg-cyberpunk-white transition-colors font-tech font-bold"
             >
               Back to top ↑
             </button>

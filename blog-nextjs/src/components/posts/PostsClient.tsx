@@ -63,17 +63,17 @@ export default function PostsClient({ posts }: PostsClientProps) {
   }
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-background">
+    <div ref={containerRef} className="min-h-screen bg-cyberpunk-base">
       {/* Header */}
-      <div ref={headerRef} className="bg-gradient-to-r from-primary/10 via-primary/5 to-transparent">
+      <div ref={headerRef} className="bg-gradient-to-r from-cyberpunk-yellow/10 via-cyberpunk-yellow/5 to-transparent">
         <div className="max-w-4xl mx-auto px-6 py-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-            All Posts
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-cyberpunk-yellow font-cyber">
+            ALL POSTS
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl">
+          <p className="text-xl text-cyberpunk-white max-w-2xl">
             Explore my thoughts on Unity development, C# programming, and game development tools.
           </p>
-          <div className="mt-6 text-sm text-muted-foreground">
+          <div className="mt-6 text-sm text-cyberpunk-yellow">
             {posts.length} posts published
           </div>
         </div>
@@ -91,10 +91,10 @@ export default function PostsClient({ posts }: PostsClientProps) {
               className="group"
             >
               <Link href={`/posts/${post.slug}`}>
-                <div className="bg-card border border-border rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-primary/20 hover:-translate-y-1">
+                <div className="cyber-panel p-6 hover:shadow-neon-yellow transition-all duration-300 hover:border-cyberpunk-yellow/50 hover:-translate-y-1">
                   <div className="flex flex-col gap-4">
                     {/* Post Meta */}
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+                    <div className="flex flex-wrap items-center gap-4 text-sm text-cyberpunk-yellow">
                       <div className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
                         <time dateTime={post.frontmatter.date}>
@@ -108,12 +108,12 @@ export default function PostsClient({ posts }: PostsClientProps) {
                     </div>
 
                     {/* Title */}
-                    <h2 className="text-2xl font-bold group-hover:text-primary transition-colors">
+                    <h2 className="text-2xl font-bold text-cyberpunk-white group-hover:text-cyberpunk-yellow transition-colors font-cyber">
                       {post.frontmatter.title}
                     </h2>
 
                     {/* Excerpt */}
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-cyberpunk-white/80 leading-relaxed group-hover:text-cyberpunk-white transition-colors">
                       {post.excerpt}
                     </p>
 
@@ -123,7 +123,7 @@ export default function PostsClient({ posts }: PostsClientProps) {
                         {post.frontmatter.tags.map((tag: string) => (
                           <span
                             key={tag}
-                            className="inline-flex items-center gap-1 px-3 py-1 text-xs font-medium bg-bg-tertiary text-accent-secondary rounded-full hover:bg-bg-secondary transition-colors border border-border-primary"
+                            className="inline-flex items-center gap-1 px-3 py-1 text-xs font-medium bg-cyberpunk-yellow/10 text-cyberpunk-yellow rounded-full hover:bg-cyberpunk-yellow/20 transition-colors border border-cyberpunk-yellow/30"
                           >
                             <Tag className="w-3 h-3" />
                             {tag}
@@ -133,8 +133,8 @@ export default function PostsClient({ posts }: PostsClientProps) {
                     )}
 
                     {/* Read More */}
-                    <div className="flex justify-between items-center pt-4 border-t border-border">
-                      <span className="text-primary font-medium group-hover:underline">
+                    <div className="flex justify-between items-center pt-4 border-t border-cyberpunk-yellow/20">
+                      <span className="text-cyberpunk-yellow font-medium group-hover:underline font-tech">
                         Read more →
                       </span>
                     </div>
@@ -149,8 +149,8 @@ export default function PostsClient({ posts }: PostsClientProps) {
         {posts.length === 0 && (
           <div className="text-center py-16">
             <div className="text-4xl mb-4">📝</div>
-            <h2 className="text-2xl font-bold mb-2">No posts found</h2>
-            <p className="text-muted-foreground">
+            <h2 className="text-2xl font-bold mb-2 text-cyberpunk-white">No posts found</h2>
+            <p className="text-cyberpunk-white/60">
               Check back later for new content!
             </p>
           </div>

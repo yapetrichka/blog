@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "deploy": "next build",
-    "preview": "npx serve dist"
+    "preview": "npx serve dist",
+    "setup": "node scripts/setup-env.js"
   },
   "keywords": [
     "blog",

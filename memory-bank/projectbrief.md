@@ -1,47 +1,77 @@
 # Project Brief
 
 ## Project Overview
-A Jekyll-based technical blog using the Chirpy theme, focused on Unity and .NET development content. The blog serves as a knowledge-sharing platform for game development tutorials, tools, and experiences.
+A modern Next.js blog with GSAP animations, migrated from Jekyll. Focused on Unity and .NET development content with contemporary UI/UX design. The blog serves as a knowledge-sharing platform for game development tutorials, tools, and experiences with enhanced interactivity and performance.
 
 ## Core Requirements
 
 ### Primary Goals
-- Share Unity and .NET development knowledge through blog posts
-- Showcase development projects and tools created by dreamcodestudio
-- Provide a professional online presence for the developer
-- Create valuable resources for the Unity and .NET development community
+- **Complete Migration**: Transform Jekyll blog to Next.js with GSAP animations
+- **Modern User Experience**: Implement smooth page transitions and scroll-triggered animations
+- **Content Preservation**: Maintain all existing blog posts and SEO optimization
+- **Performance Excellence**: Static generation with fast loading times
+- **Professional Design**: Contemporary UI with dark/light theme support
+- **Search Functionality**: Advanced search capabilities for content discovery
 
 ### Technical Requirements
-- Jekyll static site generator with Chirpy theme
-- GitHub Pages compatible deployment
-- Mobile-responsive design
-- SEO optimized content
-- Fast loading times
-- Professional appearance
+- **Framework**: Next.js 15 with App Router and TypeScript
+- **Animations**: GSAP with ScrollTrigger for smooth interactions
+- **Styling**: Tailwind CSS with custom design system
+- **Content**: Markdown processing with gray-matter
+- **Deployment**: Static export for Yandex Object Storage
+- **Responsive Design**: Mobile-first approach with fluid animations
+- **Theme Support**: Dark/light/system mode with smooth transitions
+- **SEO Optimization**: Enhanced meta tags and structured data
 
 ### Content Strategy
-- Unity development tutorials and tips
-- .NET programming insights
-- Game development tools and utilities
-- Project showcases and case studies
-- Technical problem-solving articles
+- **Migration Focus**: Preserve all 11 existing Unity and .NET posts
+- **Enhanced Presentation**: Improved typography and code highlighting
+- **Interactive Elements**: Animated UI components and smooth scrolling
+- **Search Integration**: Fuse.js for fast client-side search
+- **Category Organization**: Improved navigation and content discovery
 
 ## Success Criteria
-- Regular content publication
-- Clean, professional design
-- Good search engine visibility
-- Fast page load times
-- Accessible on all devices
-- Easy content management workflow
+- **Migration Completion**: All posts successfully migrated with proper routing
+- **Animation Performance**: 60fps smooth animations on all devices
+- **Fast Loading**: Under 3 seconds page load time
+- **Search Functionality**: Sub-100ms search response time
+- **Theme Switching**: Seamless dark/light mode transitions
+- **Mobile Responsiveness**: Perfect experience on all screen sizes
+- **SEO Preservation**: Maintain or improve search engine rankings
+
+## Technical Architecture
+
+### Core Stack
+- **Next.js 15**: App Router with TypeScript
+- **GSAP**: Animation library with ScrollTrigger
+- **Tailwind CSS**: Utility-first styling with custom configuration
+- **Gray-matter**: Markdown frontmatter processing
+- **Fuse.js**: Client-side fuzzy search
+- **Lucide React**: Modern icon system
+
+### Animation Features
+- **Page Transitions**: Smooth navigation between routes
+- **Scroll Animations**: Elements animate on scroll with ScrollTrigger
+- **Interactive Hover States**: Subtle micro-interactions
+- **Theme Transitions**: Animated dark/light mode switching
+- **Mobile Animations**: Touch-optimized interactions
 
 ## Constraints
-- Must work with GitHub Pages
-- Static site generation only
-- Jekyll/Ruby ecosystem
-- Chirpy theme structure and limitations
+- **Static Export**: Must work with Yandex Object Storage
+- **Performance Budget**: Animations must not impact loading speed
+- **SEO Requirements**: Maintain existing search engine optimization
+- **Content Compatibility**: All Markdown content must migrate properly
+- **Browser Support**: Modern browsers with GSAP compatibility
 
 ## Target Audience
-- Unity developers (beginner to intermediate)
-- .NET developers interested in game development
-- Game development students and enthusiasts
-- Technical professionals looking for specific solutions 
+- **Unity Developers**: Beginner to intermediate game developers
+- **C# Programmers**: .NET developers interested in game development
+- **Technical Readers**: Professionals seeking practical solutions
+- **Modern Web Users**: Expecting smooth, interactive experiences
+
+## Migration Phases
+1. **✅ Foundation Setup**: Next.js, GSAP, Tailwind, components
+2. **🔄 Content Migration**: Posts, routing, markdown processing
+3. **⏳ Search Implementation**: Fuse.js integration and UI
+4. **⏳ Animation Polish**: Enhanced GSAP effects and optimization
+5. **⏳ Deployment**: Yandex Object Storage configuration 

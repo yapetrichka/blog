@@ -380,24 +380,50 @@ code {
 }
 
 .cyberpunk-button {
-  background: var(--cyberpunk-yellow);
-  border: 1px solid var(--cyberpunk-white);
-  color: var(--cyberpunk-base);
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  font-family: var(--font-orbitron);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  background: rgba(10, 10, 10, 0.9);
+  border: 1px solid var(--cyberpunk-yellow);
+  border-radius: 6px;
+  color: var(--cyberpunk-white);
+  text-decoration: none;
+  font-family: 'Courier New', monospace;
   font-weight: 600;
-  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
   transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(252, 227, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  text-transform: uppercase;
+  min-width: 120px;
+  gap: 8px;
+}
+
+.cyberpunk-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(252, 227, 0, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.cyberpunk-button:hover::before {
+  left: 100%;
 }
 
 .cyberpunk-button:hover {
-  background: var(--cyberpunk-white);
   border-color: var(--cyberpunk-yellow);
-  color: var(--cyberpunk-base);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 0 20px rgba(252, 227, 0, 0.3),
+    inset 0 0 20px rgba(252, 227, 0, 0.1);
   transform: translateY(-2px);
+  color: var(--cyberpunk-yellow);
 }
 
 /* Selection styling */
@@ -806,4 +832,43 @@ button:hover, .btn:hover {
 @keyframes text-glow {
   0% { text-shadow: 0 0 5px var(--cyberpunk-yellow); }
   100% { text-shadow: 0 0 20px var(--cyberpunk-yellow), 0 0 30px var(--cyberpunk-yellow); }
+}
+
+/* Additional styles for Tab Support pages */
+.cyberpunk-link {
+  color: var(--cyberpunk-yellow);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  font-weight: 500;
+}
+
+.cyberpunk-link:hover {
+  color: var(--text-white);
+  text-shadow: 0 0 10px var(--cyberpunk-yellow);
+}
+
+.cyberpunk-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--cyberpunk-yellow);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 5px var(--cyberpunk-yellow);
+}
+
+.cyberpunk-link:hover::after {
+  width: 100%;
+}
+
+/* Enhanced cyberpunk button styling */
+.cyberpunk-button img {
+  transition: filter 0.3s ease;
+}
+
+.cyberpunk-button:hover img {
+  filter: brightness(1.2) saturate(1.1);
 } 

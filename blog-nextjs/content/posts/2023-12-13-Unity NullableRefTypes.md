@@ -35,7 +35,7 @@ excerpt: "\U0001F3AF What is Nullable reference type?\r\n\r\nNullable reference 
 
 Create a `csc.rsp` file next to the `asmdef`:
 
-![](../../assets/img/posts/WpzfPNCjxy.png)
+![](/assets/img/posts/WpzfPNCjxy.png)
 
 Add the `nullable` argument to the contents of `csc.rsp`:
 
@@ -51,7 +51,7 @@ Add the `#nullable` annotation context to the `.cs` content:
 #nullable enable
 ```
 
-![](../../assets/img/posts/rider64_U8BVwLGqck.png)
+![](/assets/img/posts/rider64_U8BVwLGqck.png)
 
 # 💻 Migration Guide
 

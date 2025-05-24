@@ -24,8 +24,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo with Cyberpunk styling */}
-          <Link 
-            href="/" 
+          <div 
             className="flex items-center space-x-2 gsap-fade-in group"
           >
             <div className="relative">
@@ -42,7 +41,7 @@ export function Header() {
             <span className="font-tech font-bold text-lg text-text-white group-hover:text-cyberpunk-yellow transition-colors duration-300">
               DREAM CODE STUDIO
             </span>
-          </Link>
+          </div>
 
           {/* Desktop Navigation with Cyberpunk styling */}
           <nav className="hidden md:flex items-center space-x-1">

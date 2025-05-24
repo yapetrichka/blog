@@ -36,35 +36,35 @@ Despite this, more than 93 thousand assets and extensions have been published on
   <li>Pre-exported .unitypackage</li>
 </ul>
 
-![](../../assets/img/posts/as-upload-type.png)
+![](/assets/img/posts/as-upload-type.png)
 
 Looking through the sources of the Asset Store Tools, we see the experimental functionality wrapped in the<br>
  `#if UNITY_ASTOOLS_EXPERIMENTAL` directive:
 
-![](../../assets/img/posts/astools-experimental.png)
+![](/assets/img/posts/astools-experimental.png)
 
 The functionality has already been on the Unity side, but it is not available to third-party developers:
 
-![](../../assets/img/posts/astools-ex-code.png)
+![](/assets/img/posts/astools-ex-code.png)
 
 Meanwhile, Unity Technologies developers load their own assets in the form of UPM packages:
 
-![](../../assets/img/posts/ast-folders.png)
+![](/assets/img/posts/ast-folders.png)
 
 To achieve a similar result, follow these steps:
 
 1. Create a draft package using the [Unity Publisher Portal](https://publisher.unity.com/packages):
-![](../../assets/img/posts/pp-draft.png)
-![](../../assets/img/posts/asu-draft.png)
+![](/assets/img/posts/pp-draft.png)
+![](/assets/img/posts/asu-draft.png)
 
 2. Add the value `UNITY_ASTOOLS_EXPERIMENTAL` to *Project Settings > Scripting Define Symbols*:
-![](../../assets/img/posts/ase-define.png)
+![](/assets/img/posts/ase-define.png)
 
 3. After compilation is complete, select the option to load the local UPM package and specify the package path:
-![](../../assets/img/posts/upm-package-path.png)
+![](/assets/img/posts/upm-package-path.png)
 
 4. Click the `Upload` button and 🎉:
-![](../../assets/img/posts/smart-importer-astore.png)
+![](/assets/img/posts/smart-importer-astore.png)
 
 # 💻 Conclusion
 
@@ -82,4 +82,4 @@ In future Unity releases, it is likely that an open solution will be published f
 
 [Asset Store Tools](https://github.com/Unity-Technologies/com.unity.asset-store-tools)
 
-[Unity’s Package Manager](https://docs.unity3d.com/Manual/Packages.html)
+[Unity's Package Manager](https://docs.unity3d.com/Manual/Packages.html)

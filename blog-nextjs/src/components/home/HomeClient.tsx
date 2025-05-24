@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Code, Gamepad2, Wrench, Calendar, Terminal, User, GitBranch, Zap, CircuitBoard, Shield, Cpu, Smartphone, Server, Database, Cloud, Brain, Users, Palette } from 'lucide-react'
 import { gsap } from 'gsap'
@@ -17,6 +17,25 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
   const descriptionRef = useRef<HTMLDivElement>(null)
   const buttonsRef = useRef<HTMLDivElement>(null)
   const techStackRef = useRef<HTMLDivElement>(null)
+
+  // State for floating particles to avoid hydration mismatch
+  const [particles, setParticles] = useState<Array<{
+    left: string;
+    top: string;
+    animationDelay: string;
+    animationDuration: string;
+  }>>([])
+
+  useEffect(() => {
+    // Generate particles on client side only
+    const generatedParticles = Array.from({ length: 20 }).map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      animationDelay: `${Math.random() * 5}s`,
+      animationDuration: `${3 + Math.random() * 4}s`
+    }))
+    setParticles(generatedParticles)
+  }, [])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -118,7 +137,7 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
                 <span className="text-text-white">ACCESSING DATABASE: PRACTICAL KNOWLEDGE FOR FUTURE DEVELOPERS</span>
                 <br />
                 <span className="text-cyberpunk-yellow">&gt; </span>
-                <span className="text-text-white">LOADING MODULES: UNITY TUTORIALS // .NET PROGRAMMING // DEV TOOLS</span>
+                <span className="text-text-white">LOADING MODULES: DEV TOOLS</span>
                 <br />
                 <span className="text-cyberpunk-yellow">&gt; </span>
                 <span className="text-cyberpunk-yellow">STATUS: [READY] - NEURAL LINK ESTABLISHED</span>
@@ -545,15 +564,15 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
 
         {/* Floating particles effect */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {Array.from({ length: 20 }).map((_, i) => (
+          {particles.map((particle, index) => (
             <div
-              key={i}
+              key={index}
               className="absolute w-1 h-1 bg-cyberpunk-yellow rounded-full animate-float-particle"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${3 + Math.random() * 4}s`
+                left: particle.left,
+                top: particle.top,
+                animationDelay: particle.animationDelay,
+                animationDuration: particle.animationDuration
               }}
             ></div>
           ))}

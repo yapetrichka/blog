@@ -20,13 +20,13 @@ excerpt: "\U0001F3AF Why npmjs registry?\r\n\r\n<ul>\r\n  <li>Ready up to open s
 </ul>
 
 1. Generate `Access Token` in npmjs registry
-![](../../assets/img/posts/GljgtqpFeo.png)
+![](/assets/img/posts/GljgtqpFeo.png)
 
 2. Select `Access Token` type
-![](../../assets/img/posts/chrome_Y6Piz4Q7sd.png)
+![](/assets/img/posts/chrome_Y6Piz4Q7sd.png)
 
 3. Add npm `Access Token` to GitHub repository secrets
-![](../../assets/img/posts/GMQSbVozZV.png)
+![](/assets/img/posts/GMQSbVozZV.png)
 
 4. Config GitHub workflow using a `yml` template as follows
 
@@ -58,7 +58,7 @@ jobs:
 ```
 
 ### 🎉 Now GitHub Actions  will automatically upload package to npmjs registry
-![](../../assets/img/posts/chrome_lhfCawA1bC.png)
+![](/assets/img/posts/chrome_lhfCawA1bC.png)
 
 # 🎁 Sample project
 

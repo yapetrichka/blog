@@ -716,6 +716,10 @@ video {
 .inset-0 {
   inset: 0px;
 }
+.inset-y-0 {
+  top: 0px;
+  bottom: 0px;
+}
 .bottom-0 {
   bottom: 0px;
 }
@@ -799,6 +803,9 @@ video {
 }
 .ml-4 {
   margin-left: 1rem;
+}
+.mr-1 {
+  margin-right: 0.25rem;
 }
 .mr-2 {
   margin-right: 0.5rem;
@@ -896,6 +903,9 @@ video {
 .w-1 {
   width: 0.25rem;
 }
+.w-16 {
+  width: 4rem;
+}
 .w-2 {
   width: 0.5rem;
 }
@@ -953,6 +963,36 @@ video {
 }
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+@keyframes cyberpunkGlitch {
+
+  0%, 100% {
+    transform: translate(0px, 0px);
+    filter: hue-rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-1px, -1px);
+    filter: hue-rotate(90deg);
+  }
+
+  20% {
+    transform: translate(1px, 1px);
+    filter: hue-rotate(180deg);
+  }
+
+  30% {
+    transform: translate(-1px, 1px);
+    filter: hue-rotate(270deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px);
+    filter: hue-rotate(360deg);
+  }
+}
+.animate-cyberpunk-glitch {
+  animation: cyberpunkGlitch 0.3s linear infinite;
 }
 @keyframes cyberpunkPulse {
 
@@ -1351,11 +1391,20 @@ video {
 .pl-10 {
   padding-left: 2.5rem;
 }
+.pl-16 {
+  padding-left: 4rem;
+}
 .pl-4 {
   padding-left: 1rem;
 }
+.pl-6 {
+  padding-left: 1.5rem;
+}
 .pr-4 {
   padding-right: 1rem;
+}
+.pr-6 {
+  padding-right: 1.5rem;
 }
 .pt-12 {
   padding-top: 3rem;
@@ -2465,6 +2514,11 @@ button:hover, .btn:hover {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
+.focus\:border-cyberpunk-yellow:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(252 227 0 / var(--tw-border-opacity, 1));
+}
+
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -2478,6 +2532,11 @@ button:hover, .btn:hover {
 
 .group:hover .group-hover\:w-full {
   width: 100%;
+}
+
+.group\/link:hover .group-hover\/link\:translate-x-1 {
+  --tw-translate-x: 0.25rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .group:hover .group-hover\:translate-x-1 {

@@ -66,15 +66,17 @@ export function getAllPosts(): PostPreview[] {
 
 export function getPostBySlug(slug: string): Post | null {
   try {
-    const fullPath = path.join(postsDirectory, `${slug}.md`)
+    // Decode URL-encoded characters (e.g., %20 -> space)
+    const decodedSlug = decodeURIComponent(slug)
+    const fullPath = path.join(postsDirectory, `${decodedSlug}.md`)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     const { data, content } = matter(fileContents)
 
     return {
-      slug,
+      slug: decodedSlug,
       frontmatter: {
         ...data,
-        date: data.date || extractDateFromFilename(slug),
+        date: data.date || extractDateFromFilename(decodedSlug),
         tags: data.tags || [],
       } as PostFrontmatter,
       content,
@@ -154,7 +156,9 @@ function inferCategoryFromTags(tags: string[]): string | null {
 
 export function getRelatedPosts(currentSlug: string, limit: number = 3): PostPreview[] {
   const allPosts = getAllPosts()
-  const currentPost = allPosts.find(post => post.slug === currentSlug)
+  // Decode URL-encoded characters for comparison
+  const decodedCurrentSlug = decodeURIComponent(currentSlug)
+  const currentPost = allPosts.find(post => post.slug === decodedCurrentSlug)
   
   if (!currentPost) return []
 
@@ -162,7 +166,7 @@ export function getRelatedPosts(currentSlug: string, limit: number = 3): PostPre
   
   // Score posts based on tag similarity
   const scoredPosts = allPosts
-    .filter(post => post.slug !== currentSlug)
+    .filter(post => post.slug !== decodedCurrentSlug)
     .map(post => {
       const commonTags = post.frontmatter.tags.filter(tag =>
         currentTags.some(currentTag => 

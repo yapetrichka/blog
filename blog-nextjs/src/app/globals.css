@@ -871,4 +871,25 @@ button:hover, .btn:hover {
 
 .cyberpunk-button:hover img {
   filter: brightness(1.2) saturate(1.1);
+}
+
+/* Additional utility classes for Header */
+.bg-cyberpunk-yellow {
+  background-color: var(--cyberpunk-yellow);
+}
+
+.border-cyberpunk-yellow {
+  border-color: var(--cyberpunk-yellow);
+}
+
+.text-cyberpunk-yellow {
+  color: var(--cyberpunk-yellow);
+}
+
+.ring-cyberpunk-yellow {
+  --tw-ring-color: var(--cyberpunk-yellow);
+}
+
+.ring-cyberpunk-white {
+  --tw-ring-color: var(--cyberpunk-white);
 } 

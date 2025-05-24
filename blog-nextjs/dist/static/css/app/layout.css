@@ -1508,10 +1508,6 @@ video {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
-.text-cyberpunk-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
 .text-cyberpunk-yellow {
   --tw-text-opacity: 1;
   color: rgb(252 227 0 / var(--tw-text-opacity, 1));
@@ -1530,6 +1526,10 @@ video {
 }
 .text-transparent {
   color: transparent;
+}
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 .opacity-0 {
   opacity: 0;
@@ -2503,6 +2503,27 @@ button:hover, .btn:hover {
   filter: brightness(1.2) saturate(1.1);
 }
 
+/* Additional utility classes for Header */
+.bg-cyberpunk-yellow {
+  background-color: var(--cyberpunk-yellow);
+}
+
+.border-cyberpunk-yellow {
+  border-color: var(--cyberpunk-yellow);
+}
+
+.text-cyberpunk-yellow {
+  color: var(--cyberpunk-yellow);
+}
+
+.ring-cyberpunk-yellow {
+  --tw-ring-color: var(--cyberpunk-yellow);
+}
+
+.ring-cyberpunk-white {
+  --tw-ring-color: var(--cyberpunk-white);
+}
+
 .last\:border-r-0:last-child {
   border-right-width: 0px;
 }
@@ -2557,12 +2578,6 @@ button:hover, .btn:hover {
   text-decoration-line: underline;
 }
 
-.hover\:shadow-cyberpunk-yellow:hover {
-  --tw-shadow: 0 0 15px rgba(252, 227, 0, 0.3);
-  --tw-shadow-colored: 0 0 15px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .hover\:shadow-lg:hover {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -2573,11 +2588,6 @@ button:hover, .btn:hover {
   --tw-shadow: 0 0 5px #FCE300, 0 0 10px #FCE300, 0 0 15px #FCE300;
   --tw-shadow-colored: 0 0 5px var(--tw-shadow-color), 0 0 10px var(--tw-shadow-color), 0 0 15px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.hover\:shadow-cyberpunk-yellow:hover {
-  --tw-shadow-color: #FCE300;
-  --tw-shadow: var(--tw-shadow-colored);
 }
 
 .focus\:border-cyberpunk-yellow:focus {
@@ -2684,12 +2694,6 @@ button:hover, .btn:hover {
 
 .group:hover .group-hover\:opacity-20 {
   opacity: 0.2;
-}
-
-.group:hover .group-hover\:shadow-neon-white {
-  --tw-shadow: 0 0 5px #FFFFFF, 0 0 10px #FFFFFF, 0 0 15px #FFFFFF;
-  --tw-shadow-colored: 0 0 5px var(--tw-shadow-color), 0 0 10px var(--tw-shadow-color), 0 0 15px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .group:hover .group-hover\:ring-cyberpunk-white {

@@ -33,12 +33,12 @@ export function Header() {
                 alt="Dream Code Studio Logo"
                 width={32}
                 height={32}
-                className="rounded ring-2 ring-cyberpunk-yellow group-hover:ring-cyberpunk-white transition-all duration-300 group-hover:shadow-neon-white"
+                className="rounded ring-2 ring-cyberpunk-yellow group-hover:ring-cyberpunk-white transition-all duration-300"
               />
               {/* Cyberpunk pulse effect */}
               <div className="absolute inset-0 rounded ring-1 ring-cyberpunk-white opacity-0 group-hover:opacity-100 animate-cyberpunk-pulse"></div>
             </div>
-            <span className="font-tech font-bold text-lg text-text-white group-hover:text-cyberpunk-yellow transition-colors duration-300">
+            <span className="font-tech font-bold text-lg text-white group-hover:text-cyberpunk-yellow transition-colors duration-300">
               DREAM CODE STUDIO
             </span>
           </div>
@@ -49,11 +49,11 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="relative px-4 py-2 text-text-white hover:text-cyberpunk-yellow transition-all duration-300 font-tech text-sm uppercase tracking-wider group border border-transparent hover:border-cyberpunk-yellow"
+                className="relative px-4 py-2 text-white hover:text-cyberpunk-yellow transition-all duration-300 font-tech text-sm uppercase tracking-wider group border border-transparent hover:border-cyberpunk-yellow"
               >
                 <span className="relative z-10 group-hover:cyberpunk-glow">{item.name}</span>
                 <div className="absolute inset-0 blur-dark rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyberpunk-yellow group-hover:w-full transition-all duration-300 shadow-neon-yellow"></div>
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyberpunk-yellow group-hover:w-full transition-all duration-300"></div>
                 {/* Cyberpunk glitch effect on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 group-hover:animate-cyberpunk-glitch pointer-events-none">
                   <div className="absolute inset-0 bg-cyberpunk-yellow mix-blend-multiply opacity-20"></div>
@@ -67,7 +67,7 @@ export function Header() {
             {/* Search Button */}
             <Link
               href="/search"
-              className="relative p-2 text-text-white hover:text-cyberpunk-yellow transition-all duration-300 group border border-cyberpunk-yellow rounded hover:shadow-cyberpunk-yellow blur-dark"
+              className="relative p-2 text-white hover:text-cyberpunk-yellow transition-all duration-300 group border border-cyberpunk-yellow rounded blur-dark"
               aria-label="Search"
             >
               <Search className="w-5 h-5 relative z-10 group-hover:cyberpunk-glow" />
@@ -83,7 +83,7 @@ export function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden relative p-2 text-text-white hover:text-cyberpunk-yellow transition-all duration-300 group border border-cyberpunk-yellow rounded hover:shadow-cyberpunk-yellow blur-dark"
+              className="md:hidden relative p-2 text-white hover:text-cyberpunk-yellow transition-all duration-300 group border border-cyberpunk-yellow rounded blur-dark"
               aria-label="Toggle menu"
             >
               <div className="relative z-10 group-hover:cyberpunk-glow">
@@ -100,13 +100,13 @@ export function Header() {
 
         {/* Mobile Navigation with Cyberpunk styling */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-cyberpunk-yellow gsap-slide-down blur-intense rounded-b border border-cyberpunk-yellow/30">
+          <div className="md:hidden py-4 border-t border-cyberpunk-yellow blur-intense rounded-b border border-cyberpunk-yellow/30">
             <nav className="flex flex-col space-y-2">
               {navigation.map((item, index) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="font-tech text-text-white hover:text-cyberpunk-yellow transition-all duration-300 py-3 px-4 rounded border border-transparent hover:border-cyberpunk-yellow blur-dark uppercase tracking-wider group"
+                  className="font-tech text-white hover:text-cyberpunk-yellow transition-all duration-300 py-3 px-4 rounded border border-transparent hover:border-cyberpunk-yellow blur-dark uppercase tracking-wider group"
                   onClick={() => setIsMenuOpen(false)}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
@@ -126,7 +126,7 @@ export function Header() {
                   <div className="w-2 h-2 bg-cyberpunk-yellow rounded-full"></div>
                   <span className="text-cyberpunk-yellow uppercase tracking-wider">SYSTEM READY</span>
                 </span>
-                <span className="text-cyberpunk-white">[OK]</span>
+                <span className="text-white">[OK]</span>
               </div>
               
               {/* Blue typewriter code effect */}
@@ -141,7 +141,7 @@ export function Header() {
       </div>
       
       {/* Cyberpunk neon glow effect */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-cyberpunk-yellow opacity-80 shadow-neon-yellow"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-cyberpunk-yellow opacity-80"></div>
       
       {/* Additional cyberpunk grid lines */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none" 

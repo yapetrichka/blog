@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Github, Mail, Heart, Terminal, Code, Sparkles } from 'lucide-react'
+import { Github, Mail, Heart, Terminal, Code, Sparkles, Music, Video } from 'lucide-react'
+import siteConfig from '@/site.config'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -62,18 +63,38 @@ export function Footer() {
               </div>
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com/dreamcodestudio"
+                  href={siteConfig.social.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-text-primary hover:text-accent-primary transition-all duration-300 group p-2 rounded-md hover:bg-bg-terminal catppuccin-blue"
+                  aria-label="GitHub"
                 >
                   <Github className="w-5 h-5 group-hover:animate-catppuccin-glow" />
                 </a>
                 <a
-                  href="mailto:dreamcodestudio@yandex.com"
+                  href={`mailto:${siteConfig.social.email}`}
                   className="text-text-primary hover:text-accent-blue transition-all duration-300 group p-2 rounded-md hover:bg-bg-terminal catppuccin-teal"
+                  aria-label="Email"
                 >
                   <Mail className="w-5 h-5 group-hover:animate-catppuccin-glow" />
+                </a>
+                <a
+                  href={siteConfig.social.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-primary hover:text-accent-red transition-all duration-300 group p-2 rounded-md hover:bg-bg-terminal catppuccin-red"
+                  aria-label="TikTok"
+                >
+                  <Music className="w-5 h-5 group-hover:animate-catppuccin-glow" />
+                </a>
+                <a
+                  href={siteConfig.social.youtube}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-primary hover:text-accent-red transition-all duration-300 group p-2 rounded-md hover:bg-bg-terminal catppuccin-yellow"
+                  aria-label="YouTube"
+                >
+                  <Video className="w-5 h-5 group-hover:animate-catppuccin-glow" />
                 </a>
               </div>
             </div>

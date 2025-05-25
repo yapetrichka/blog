@@ -4,6 +4,7 @@ import './globals.css'
 import { GSAPProvider } from '@/components/animations/GSAPProvider'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import SponsorButtons from '@/components/ui/SponsorButtons'
 
 const rajdhani = Rajdhani({ 
   subsets: ['latin'],
@@ -55,6 +56,7 @@ export default function RootLayout({
               {children}
             </main>
             <Footer />
+            <SponsorButtons />
           </div>
         </GSAPProvider>
       </body>

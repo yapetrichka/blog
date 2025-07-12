@@ -1,0 +1,34 @@
+{
+  "projectName": "Game Aim Converter",
+  "projectType": "flutter",
+  "description": "Flutter mobile app that helps gamers convert mouse sensitivity settings between different games",
+  "primaryLanguage": "dart",
+  "buildCommands": {
+    "install": "flutter pub get",
+    "run": "flutter run",
+    "test": "flutter test",
+    "analyze": "flutter analyze",
+    "build": {
+      "android": "flutter build apk --release",
+      "ios": "flutter build ios --release"
+    }
+  },
+  "testCommand": "flutter test",
+  "lintCommand": "flutter analyze",
+  "mainEntryPoint": "lib/main.dart",
+  "keyDirectories": [
+    "lib/",
+    "assets/",
+    "android/",
+    "ios/"
+  ],
+  "ignorePatterns": [
+    "build/",
+    ".dart_tool/",
+    "*.g.dart",
+    "*.freezed.dart",
+    "android/.cxx/",
+    "ios/Pods/"
+  ],
+  "includeCoAuthoredBy": false
+}

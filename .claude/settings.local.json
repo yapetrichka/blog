@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git commit:*)",
+      "Bash(git add:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(find:*)",
+      "Bash(flutter analyze:*)",
+      "WebFetch(domain:colorhunt.co)",
+      "WebFetch(domain:pub.dev)"
+    ],
+    "deny": []
+  }
+}

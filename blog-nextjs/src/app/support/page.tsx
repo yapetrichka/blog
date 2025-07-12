@@ -48,14 +48,6 @@ export default function SupportPage() {
                 >
                   📱 Telegram Support
                 </a>
-                <a 
-                  href="https://discord.gg/qA3cbc9J8w" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="cyberpunk-button"
-                >
-                  💬 Discord Community
-                </a>
               </div>
             </div>
           </section>
@@ -72,14 +64,6 @@ export default function SupportPage() {
                   className="cyberpunk-button"
                 >
                   📱 Telegram Support
-                </a>
-                <a 
-                  href="https://discord.gg/99h74wfU" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="cyberpunk-button"
-                >
-                  💬 Discord Community
                 </a>
               </div>
             </div>
@@ -121,14 +105,6 @@ export default function SupportPage() {
                       >
                         📱 Telegram
                       </a>
-                      <a 
-                        href="https://discord.gg/6syPMn5J" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="cyberpunk-button"
-                      >
-                        💬 Discord
-                      </a>
                     </div>
                   </div>
                 </div>
@@ -148,14 +124,6 @@ export default function SupportPage() {
                   className="cyberpunk-button"
                 >
                   📱 Telegram Support
-                </a>
-                <a 
-                  href="https://discord.gg/hzcyw6AQ" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="cyberpunk-button"
-                >
-                  💬 Discord Community
                 </a>
               </div>
             </div>

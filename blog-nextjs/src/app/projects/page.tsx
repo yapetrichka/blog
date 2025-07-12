@@ -19,8 +19,8 @@ const apps = [
         url: 'https://apps.apple.com/app/game-aim-converter/id1618000036'
       },
       {
-        platform: 'Uptodown',
-        url: 'https://game-aim-converter.en.uptodown.com/android'
+        platform: 'Google Play',
+        url: 'https://play.google.com/store/apps/details?id=com.truedreamcode.gameaimconverter'
       }
     ]
   },
@@ -95,7 +95,7 @@ const tools = [
 // Platform icons mapping
 const platformIcons = {
   'App Store': '📱',
-  'Uptodown': '🤖',
+  'Google Play': '🤖',
   'Unity Asset Store': '🎮',
   'GitHub': '💻'
 }

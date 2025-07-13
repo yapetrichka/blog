@@ -24,15 +24,10 @@ const siteConfig = {
     youtube: 'https://www.youtube.com/@dreamcodestudio'
   },
 
-  // Boosty configuration for sponsor button
   boosty: {
-    // Replace with your real Boosty username
     username: 'dreamcodestudio',
-    // URL for donations - direct link to donate page
-    donateUrl: 'https://boosty.to/dreamcodestudio/donate',
-    // Whether to display sponsor button
+    donateUrl: 'https://nowpayments.io/donation/dreamcode',
     enabled: true,
-    // Button text
     texts: {
       sponsor: '❤️ Support Me'
     }

@@ -17,3 +17,12 @@ vendor
 # npm dependencies
 node_modules
 package-lock.json
+
+# Next.js build output
+blog-nextjs/.next/
+blog-nextjs/dist/
+blog-nextjs/out/
+
+# Next.js cache
+blog-nextjs/.cache/
+blog-nextjs/.vercel

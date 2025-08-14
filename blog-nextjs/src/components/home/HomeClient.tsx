@@ -199,9 +199,6 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
                       <Calendar className="w-4 h-4" />
                       <time>{formatDate(post.frontmatter.date)}</time>
                     </div>
-                    {post.readingTime && (
-                      <span>{post.readingTime} min read</span>
-                    )}
                   </div>
                   
                   <h3 className="text-xl font-semibold text-gray-900 mb-3">
@@ -214,7 +211,7 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
                   </h3>
                   
                   <p className="text-gray-600">
-                    {getFirstSentence(post.excerpt || post.frontmatter.excerpt)}
+                    {getFirstSentence(post.excerpt || post.frontmatter.excerpt || '')}
                   </p>
                 </div>
               </article>

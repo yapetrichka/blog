@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { Calendar, Clock, Tag, ArrowLeft, Share2 } from 'lucide-react'
+import { Calendar, Clock, ArrowLeft, Share2 } from 'lucide-react'
 import { gsap } from 'gsap'
 import { Breadcrumb } from '@/components/ui/Breadcrumb'
 import type { Post } from '@/lib/posts'
@@ -62,20 +62,20 @@ export default function PostClient({ post }: PostClientProps) {
     return `${time} min read`
   }
 
-  // Convert markdown to HTML (basic implementation)
+  // Convert markdown to HTML (minimalist implementation)
   const renderMarkdown = (content: string) => {
     return content
-      .replace(/^### (.*$)/gm, '<h3 class="text-xl font-bold mt-8 mb-4 text-cyberpunk-white font-cyber">$1</h3>')
-      .replace(/^## (.*$)/gm, '<h2 class="text-2xl font-bold mt-8 mb-4 text-cyberpunk-white font-cyber">$1</h2>')
-      .replace(/^# (.*$)/gm, '<h1 class="text-3xl font-bold mt-8 mb-4 text-cyberpunk-yellow font-cyber">$1</h1>')
-      .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-cyberpunk-yellow">$1</strong>')
-      .replace(/\*(.*?)\*/g, '<em class="italic text-cyberpunk-white">$1</em>')
-      .replace(/`(.*?)`/g, '<code class="bg-cyberpunk-yellow/20 text-cyberpunk-yellow px-1.5 py-0.5 rounded text-sm font-mono">$1</code>')
-      .replace(/\n\n/g, '</p><p class="mb-4 text-cyberpunk-white/90">')
-      .replace(/^- (.*$)/gm, '<li class="ml-4 text-cyberpunk-white/90">$1</li>')
-      .replace(/^\* (.*$)/gm, '<li class="ml-4 text-cyberpunk-white/90">$1</li>')
-      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="rounded-lg my-6 w-full border border-cyberpunk-yellow/30" />')
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-cyberpunk-yellow hover:underline hover:text-cyberpunk-white transition-colors">$1</a>')
+      .replace(/^### (.*$)/gm, '<h3 class="text-xl font-bold mt-6 mb-3 text-gray-900">$1</h3>')
+      .replace(/^## (.*$)/gm, '<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">$1</h2>')
+      .replace(/^# (.*$)/gm, '<h1 class="text-3xl font-bold mt-8 mb-4 text-gray-900">$1</h1>')
+      .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-gray-900">$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em class="italic text-gray-700">$1</em>')
+      .replace(/`(.*?)`/g, '<code class="bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded text-sm font-mono">$1</code>')
+      .replace(/\n\n/g, '</p><p class="mb-4 text-gray-700">')
+      .replace(/^- (.*$)/gm, '<li class="ml-4 text-gray-700">$1</li>')
+      .replace(/^\* (.*$)/gm, '<li class="ml-4 text-gray-700">$1</li>')
+      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="rounded-lg my-6 w-full border border-gray-200" />')
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-black hover:underline transition-colors">$1</a>')
   }
 
   const breadcrumbItems = [
@@ -84,80 +84,70 @@ export default function PostClient({ post }: PostClientProps) {
   ]
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-cyberpunk-base">
+    <div ref={containerRef} className="min-h-screen bg-white">
       {/* Header */}
-      <div ref={headerRef} className="bg-gradient-to-r from-cyberpunk-yellow/10 via-cyberpunk-yellow/5 to-transparent">
-        <div className="max-w-4xl mx-auto px-6 py-16">
+      <div ref={headerRef} className="bg-white">
+        <div className="max-w-4xl mx-auto px-6 py-6 pb-0">
           {/* Breadcrumb Navigation */}
-          <Breadcrumb items={breadcrumbItems} />
-
-          {/* Post Meta */}
-          <div className="flex flex-wrap items-center gap-4 text-sm text-cyberpunk-yellow mb-6">
-            <div className="flex items-center gap-1">
-              <Calendar className="w-4 h-4" />
-              <time dateTime={post.frontmatter.date}>
-                {formatDate(post.frontmatter.date)}
-              </time>
-            </div>
-            <div className="flex items-center gap-1">
-              <Clock className="w-4 h-4" />
-              <span>{getReadingTime(post.content)}</span>
-            </div>
+          <div className="mb-4">
+            <Breadcrumb items={breadcrumbItems} />
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-cyberpunk-yellow font-cyber">
+          <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900">
             {post.frontmatter.title}
           </h1>
 
-          {/* Tags */}
-          {post.frontmatter.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-6">
-              {post.frontmatter.tags.map((tag: string) => (
-                <span
-                  key={tag}
-                  className="inline-flex items-center gap-1 px-3 py-1 text-xs font-medium bg-cyberpunk-yellow/10 text-cyberpunk-yellow rounded-full border border-cyberpunk-yellow/30"
-                >
-                  <Tag className="w-3 h-3" />
-                  {tag}
-                </span>
-              ))}
+          {/* Post Meta and Share */}
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+              <div className="flex items-center gap-1">
+                <Calendar className="w-4 h-4" />
+                <time dateTime={post.frontmatter.date}>
+                  {formatDate(post.frontmatter.date)}
+                </time>
+              </div>
+              <div className="flex items-center gap-1">
+                <Clock className="w-4 h-4" />
+                <span>{getReadingTime(post.content)}</span>
+              </div>
             </div>
-          )}
 
-          {/* Share Button */}
-          <button 
-            onClick={() => {
-              if (navigator.share) {
-                navigator.share({
-                  title: post.frontmatter.title,
-                  url: window.location.href
-                })
-              }
-            }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-cyberpunk-yellow/20 hover:bg-cyberpunk-yellow/30 text-cyberpunk-yellow rounded-lg transition-colors border border-cyberpunk-yellow/50"
-          >
-            <Share2 className="w-4 h-4" />
-            Share
-          </button>
+            {/* Share Button */}
+            <button 
+              onClick={() => {
+                if (navigator.share) {
+                  navigator.share({
+                    title: post.frontmatter.title,
+                    url: window.location.href
+                  })
+                }
+              }}
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              <Share2 className="w-3 h-3" />
+              Share
+            </button>
+          </div>
+
         </div>
       </div>
 
       {/* Content */}
-      <div ref={contentRef} className="max-w-4xl mx-auto px-6 py-12">
-        <article className="prose prose-lg prose-invert max-w-none">
+      <div ref={contentRef} className="max-w-4xl mx-auto px-6 pt-4 pb-6">
+        <article className="prose prose-lg max-w-none">
           <div 
-            className="leading-relaxed text-cyberpunk-white/90 [&>p]:mb-4 [&>p]:text-cyberpunk-white/90 [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:mt-8 [&>h1]:mb-4 [&>h1]:text-cyberpunk-yellow [&>h1]:font-cyber [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:mt-8 [&>h2]:mb-4 [&>h2]:text-cyberpunk-white [&>h2]:font-cyber [&>h3]:text-xl [&>h3]:font-bold [&>h3]:mt-6 [&>h3]:mb-3 [&>h3]:text-cyberpunk-white [&>h3]:font-cyber [&>ul]:my-4 [&>ul]:ml-6 [&>li]:mb-2 [&>li]:text-cyberpunk-white/90 [&>code]:bg-cyberpunk-yellow/20 [&>code]:text-cyberpunk-yellow [&>code]:px-1.5 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:font-mono [&>img]:rounded-lg [&>img]:my-6 [&>img]:border [&>img]:border-cyberpunk-yellow/30 [&>a]:text-cyberpunk-yellow [&>a]:hover:underline [&>a]:hover:text-cyberpunk-white [&>a]:transition-colors"
+            className="leading-relaxed text-gray-700 [&>p]:mb-4 [&>p]:text-gray-700 [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:mt-8 [&>h1]:mb-4 [&>h1]:text-gray-900 [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:mt-8 [&>h2]:mb-4 [&>h2]:text-gray-900 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:mt-6 [&>h3]:mb-3 [&>h3]:text-gray-900 [&>ul]:my-4 [&>ul]:ml-6 [&>li]:mb-2 [&>li]:text-gray-700 [&>code]:bg-gray-100 [&>code]:text-gray-800 [&>code]:px-1.5 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:font-mono [&>img]:rounded-lg [&>img]:my-6 [&>img]:border [&>img]:border-gray-200 [&>a]:text-black [&>a]:hover:underline [&>a]:transition-colors"
             dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content) }}
           />
         </article>
 
         {/* Footer Navigation */}
-        <div className="mt-16 pt-8 border-t border-cyberpunk-yellow/20">
+        <div className="mt-12 pt-6 border-t border-gray-200">
           <div className="flex justify-between items-center">
             <Link 
               href="/posts"
-              className="inline-flex items-center gap-2 px-4 py-2 cyber-panel rounded-lg hover:bg-cyberpunk-yellow/10 transition-colors text-cyberpunk-white hover:text-cyberpunk-yellow"
+              className="inline-flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-gray-900 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               All Posts
@@ -165,7 +155,7 @@ export default function PostClient({ post }: PostClientProps) {
             
             <button 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-cyberpunk-yellow text-black rounded-lg hover:bg-cyberpunk-white transition-colors font-tech font-bold"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-900 transition-colors"
             >
               Back to top ↑
             </button>
@@ -174,4 +164,4 @@ export default function PostClient({ post }: PostClientProps) {
       </div>
     </div>
   )
-} 
+}

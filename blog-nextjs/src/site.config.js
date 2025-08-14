@@ -29,7 +29,7 @@ const siteConfig = {
     donateUrl: 'https://nowpayments.io/donation/dreamcode',
     enabled: true,
     texts: {
-      sponsor: '❤️ Support Me'
+      sponsor: 'Support Me'
     }
   }
 }

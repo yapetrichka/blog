@@ -8,107 +8,134 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Simplified Cyberpunk 2077 Colors (only yellow and white text)
+        // Minimalist Black & White Color Palette
+        black: '#000000',
+        white: '#FFFFFF',
+        gray: {
+          50: '#FAFAFA',   // Lightest background
+          100: '#F5F5F5',  // Light background (code blocks)
+          200: '#E5E5E5',  // Borders
+          300: '#D4D4D4',  // Hover borders
+          400: '#A3A3A3',  // Disabled text
+          500: '#737373',  // Secondary text
+          600: '#525252',  // Primary text light
+          700: '#404040',  // Heading text light
+          800: '#262626',  // Heading text
+          900: '#171717',  // Primary text
+          950: '#0A0A0A',  // Darkest text
+        },
+        // Semantic colors for easy migration
         bg: {
-          primary: '#000000',      // Pure black background
-          secondary: '#0A0A0A',    // Very dark background
-          tertiary: '#1A1A1A',     // Dark card background
-          blur: '#0D0D0D',         // Background for blur effects
+          primary: '#FFFFFF',      // White background
+          secondary: '#FAFAFA',    // Light gray background
+          tertiary: '#F5F5F5',     // Card background
+          blur: 'rgba(255, 255, 255, 0.95)', // Blur background
         },
         text: {
-          primary: '#FFFFFF',      // Pure white text
-          secondary: '#FCE300',    // Cyberpunk yellow text
-          white: '#FFFFFF',        // Pure white
-          yellow: '#FCE300',       // Cyberpunk yellow
+          primary: '#171717',      // Dark text
+          secondary: '#737373',    // Gray text
+          white: '#FFFFFF',        // White (for dark backgrounds)
+          black: '#000000',        // Pure black
         },
         accent: {
-          primary: '#FCE300',      // Yellow primary accent
-          secondary: '#FFFFFF',    // White secondary accent
-          yellow: '#FCE300',       // Cyberpunk yellow
-          white: '#FFFFFF',        // Pure white
+          primary: '#000000',      // Black accent
+          secondary: '#737373',    // Gray accent
         },
         border: {
-          primary: '#333333',      // Dark gray borders
-          secondary: '#FCE300',    // Yellow borders for focus
-          tertiary: '#555555',     // Medium gray borders
+          primary: '#E5E5E5',      // Light gray borders
+          secondary: '#D4D4D4',    // Hover borders
+          tertiary: '#F5F5F5',     // Very light borders
         },
-        // Cyberpunk 2077 Simplified Flat Colors
-        cyberpunk: {
-          // Base colors
-          base: '#000000',         // Pure black background
-          dark: '#000000',         // Pure black
-          surface: '#0A0A0A',      // Very dark surface
-          card: '#1A1A1A',         // Card background
-          blur: '#0D0D0D',         // Blur background
-          // Only yellow and white
-          yellow: '#FCE300',       // Official Cyberpunk yellow
-          white: '#FFFFFF',        // Pure white
-          // Support colors
-          gray: '#333333',         // Dark gray
-          darkGray: '#1A1A1A',     // Darker gray
-          lightGray: '#555555',    // Light gray for borders
-        },
-        gray: {
-          50: '#FFFFFF',   // White
-          100: '#F0F0F0',  // Very light gray
-          200: '#CCCCCC',  // Light gray
-          300: '#999999',  // Medium-light gray
-          400: '#777777',  // Medium gray
-          500: '#555555',  // Medium-dark gray
-          600: '#333333',  // Dark gray
-          700: '#1A1A1A',  // Darker gray
-          800: '#0D0D0D',  // Very dark gray
-          850: '#0A0A0A',  // Almost black
-          900: '#000000',  // Pure black
-        }
+      },
+      spacing: {
+        // 8pt Grid System
+        '0': '0',
+        '0.5': '4px',    // 0.5x base
+        '1': '8px',      // Base unit
+        '1.5': '12px',   // 1.5x base
+        '2': '16px',     // 2x base
+        '3': '24px',     // 3x base
+        '4': '32px',     // 4x base
+        '5': '40px',     // 5x base
+        '6': '48px',     // 6x base
+        '7': '56px',     // 7x base
+        '8': '64px',     // 8x base
+        '9': '72px',     // 9x base
+        '10': '80px',    // 10x base
+        '11': '88px',    // 11x base
+        '12': '96px',    // 12x base
+        '14': '112px',   // 14x base
+        '16': '128px',   // 16x base
+        '20': '160px',   // 20x base
+        '24': '192px',   // 24x base
+        '28': '224px',   // 28x base
+        '32': '256px',   // 32x base
+        '36': '288px',   // 36x base
+        '40': '320px',   // 40x base
+        '44': '352px',   // 44x base
+        '48': '384px',   // 48x base
+        '52': '416px',   // 52x base
+        '56': '448px',   // 56x base
+        '60': '480px',   // 60x base
+        '64': '512px',   // 64x base
+        '72': '576px',   // 72x base
+        '80': '640px',   // 80x base
+        '96': '768px',   // 96x base
       },
       fontFamily: {
         sans: [
-          'Rajdhani',
+          'Inter',
           'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
           'sans-serif'
         ],
         mono: [
-          'Orbitron',
+          'JetBrains Mono',
           'Monaco',
           'Menlo',
           'Consolas',
+          'Courier New',
           'monospace'
         ],
+        // Keep aliases for compatibility
         terminal: [
-          'Orbitron',
+          'JetBrains Mono',
           'Monaco', 
           'Menlo',
           'monospace'
         ],
         cyberpunk: [
-          'Rajdhani',
+          'Inter',
           'system-ui',
           'sans-serif'
         ],
         tech: [
-          'Orbitron',
+          'JetBrains Mono',
           'monospace'
         ],
+      },
+      fontSize: {
+        // 8pt Grid Aligned Typography
+        'xs': ['12px', { lineHeight: '16px' }],   // 1.5x base, 2x base line height
+        'sm': ['14px', { lineHeight: '24px' }],   // 1.75x base, 3x base line height
+        'base': ['16px', { lineHeight: '24px' }], // 2x base, 3x base line height
+        'lg': ['18px', { lineHeight: '32px' }],   // 2.25x base, 4x base line height
+        'xl': ['20px', { lineHeight: '32px' }],   // 2.5x base, 4x base line height
+        '2xl': ['24px', { lineHeight: '32px' }],  // 3x base, 4x base line height
+        '3xl': ['32px', { lineHeight: '40px' }],  // 4x base, 5x base line height
+        '4xl': ['40px', { lineHeight: '48px' }],  // 5x base, 6x base line height
+        '5xl': ['48px', { lineHeight: '56px' }],  // 6x base, 7x base line height
+        '6xl': ['64px', { lineHeight: '72px' }],  // 8x base, 9x base line height
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.3s ease-out',
         'slide-down': 'slideDown 0.3s ease-out',
-        'terminal-blink': 'terminalBlink 1s infinite',
-        'typewriter': 'typewriter 3s steps(40) 1s forwards',
-        'cyberpunk-glow': 'cyberpunkGlow 2s ease-in-out infinite alternate',
-        'cyberpunk-pulse': 'cyberpunkPulse 2s ease-in-out infinite',
-        'cyberpunk-scan': 'cyberpunkScan 3s linear infinite',
-        'cyberpunk-glitch': 'cyberpunkGlitch 0.3s linear infinite',
-        'neon-flicker': 'neonFlicker 1.5s linear infinite',
-        'data-stream': 'dataStream 20s linear infinite',
-        // Blue typewriter effects
-        'typewriter-glow': 'typewriterGlow 3s ease-in-out infinite alternate',
-        'type-line': 'typeLine 4s infinite',
-        'cursor-blink': 'cursorBlink 1s infinite',
-        'code-fall': 'codeFall 8s linear infinite',
-        'blue-scan': 'blueScan 3s linear infinite',
+        'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'spin': 'spin 1s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -123,143 +150,35 @@ module.exports = {
           '0%': { transform: 'translateY(-10px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
-        terminalBlink: {
-          '0%, 50%': { opacity: '1' },
-          '51%, 100%': { opacity: '0' },
+        pulse: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '.5' },
         },
-        typewriter: {
-          '0%': { width: '0' },
-          '100%': { width: '100%' },
-        },
-        cyberpunkGlow: {
-          '0%': { 
-            textShadow: '0 0 5px #FCE300, 0 0 10px #FCE300, 0 0 15px #FCE300',
-            boxShadow: '0 0 5px rgba(252, 227, 0, 0.3)'
-          },
-          '100%': { 
-            textShadow: '0 0 8px #FCE300, 0 0 16px #FCE300, 0 0 24px #FCE300',
-            boxShadow: '0 0 12px rgba(252, 227, 0, 0.5)'
-          },
-        },
-        cyberpunkPulse: {
-          '0%, 100%': { 
-            boxShadow: '0 0 5px rgba(252, 227, 0, 0.4)',
-            borderColor: '#FCE300'
-          },
-          '50%': { 
-            boxShadow: '0 0 15px rgba(255, 255, 255, 0.6)',
-            borderColor: '#FFFFFF'
-          },
-        },
-        cyberpunkScan: {
-          '0%': { 
-            transform: 'translateX(-100%)',
-            opacity: '0'
-          },
-          '50%': { 
-            opacity: '1'
-          },
-          '100%': { 
-            transform: 'translateX(100%)',
-            opacity: '0'
-          },
-        },
-        cyberpunkGlitch: {
-          '0%, 100%': { 
-            transform: 'translate(0px, 0px)',
-            filter: 'hue-rotate(0deg)'
-          },
-          '10%': { 
-            transform: 'translate(-1px, -1px)',
-            filter: 'hue-rotate(90deg)'
-          },
-          '20%': { 
-            transform: 'translate(1px, 1px)',
-            filter: 'hue-rotate(180deg)'
-          },
-          '30%': { 
-            transform: 'translate(-1px, 1px)',
-            filter: 'hue-rotate(270deg)'
-          },
-          '40%': { 
-            transform: 'translate(1px, -1px)',
-            filter: 'hue-rotate(360deg)'
-          },
-        },
-        neonFlicker: {
-          '0%, 19%, 21%, 23%, 25%, 54%, 56%, 100%': {
-            opacity: '1',
-            textShadow: '0 0 5px #FCE300, 0 0 10px #FCE300, 0 0 15px #FCE300'
-          },
-          '20%, 24%, 55%': {
-            opacity: '0.4',
-            textShadow: 'none'
-          }
-        },
-        dataStream: {
-          '0%': { transform: 'translateY(-100vh)' },
-          '100%': { transform: 'translateY(100vh)' }
-        },
-        typewriterGlow: {
-          '0%': { 
-            textShadow: '0 0 5px #FCE300, 0 0 10px #FCE300, 0 0 15px #FCE300',
-            boxShadow: '0 0 5px rgba(252, 227, 0, 0.3)'
-          },
-          '100%': { 
-            textShadow: '0 0 8px #FCE300, 0 0 16px #FCE300, 0 0 24px #FCE300',
-            boxShadow: '0 0 12px rgba(252, 227, 0, 0.5)'
-          },
-        },
-        typeLine: {
-          '0%': { width: '0' },
-          '100%': { width: '100%' },
-        },
-        cursorBlink: {
-          '0%, 50%': { opacity: '1' },
-          '51%, 100%': { opacity: '0' },
-        },
-        codeFall: {
-          '0%': { transform: 'translateY(-100%)' },
-          '100%': { transform: 'translateY(100%)' },
-        },
-        blueScan: {
-          '0%': { 
-            transform: 'translateX(-100%)',
-            opacity: '0'
-          },
-          '50%': { 
-            opacity: '1'
-          },
-          '100%': { 
-            transform: 'translateX(100%)',
-            opacity: '0'
-          },
+        spin: {
+          'to': { transform: 'rotate(360deg)' },
         },
       },
       boxShadow: {
-        'cyberpunk': '0 0 10px rgba(252, 227, 0, 0.3)',
-        'cyberpunk-lg': '0 0 20px rgba(252, 227, 0, 0.4)',
-        'cyberpunk-xl': '0 0 30px rgba(252, 227, 0, 0.5)',
-        'cyberpunk-yellow': '0 0 15px rgba(252, 227, 0, 0.3)',
-        'cyberpunk-white': '0 0 15px rgba(255, 255, 255, 0.3)',
-        'neon-yellow': '0 0 5px #FCE300, 0 0 10px #FCE300, 0 0 15px #FCE300',
-        'neon-white': '0 0 5px #FFFFFF, 0 0 10px #FFFFFF, 0 0 15px #FFFFFF',
-        'glow': '0 0 5px currentColor',
-        'inner-glow': 'inset 0 0 10px rgba(252, 227, 0, 0.2)',
-        'terminal': '0 0 20px rgba(0, 0, 0, 0.9)',
-        'blur-dark': '0 4px 30px rgba(0, 0, 0, 0.8)',
-        'blur-heavy': '0 8px 40px rgba(0, 0, 0, 0.9)',
+        // Minimalist shadows
+        'sm': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
+        'DEFAULT': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+        'md': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+        '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+        'inner': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+        'none': 'none',
       },
-      backdropBlur: {
-        'cyberpunk': '10px',
-        'heavy': '20px',
-        'intense': '30px',
-      },
-      spacing: {
-        '18': '4.5rem',
-        '88': '22rem',
-        '112': '28rem',
-        '128': '32rem',
+      borderRadius: {
+        'none': '0',
+        'sm': '2px',
+        'DEFAULT': '4px',
+        'md': '6px',
+        'lg': '8px',
+        'xl': '12px',
+        '2xl': '16px',
+        '3xl': '24px',
+        'full': '9999px',
       },
     },
   },

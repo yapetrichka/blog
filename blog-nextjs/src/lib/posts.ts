@@ -87,72 +87,6 @@ export function getPostBySlug(slug: string): Post | null {
   }
 }
 
-export function getAllTags(): string[] {
-  const posts = getAllPosts()
-  const tags = new Set<string>()
-  
-  posts.forEach(post => {
-    post.frontmatter.tags.forEach(tag => tags.add(tag))
-  })
-  
-  return Array.from(tags).sort()
-}
-
-export function getPostsByTag(tag: string): PostPreview[] {
-  const posts = getAllPosts()
-  return posts.filter(post => 
-    post.frontmatter.tags.some(postTag => 
-      postTag.toLowerCase() === tag.toLowerCase()
-    )
-  )
-}
-
-export function getAllCategories(): string[] {
-  const posts = getAllPosts()
-  const categories = new Set<string>()
-  
-  posts.forEach(post => {
-    // Extract category from tags or infer from tags
-    const category = inferCategoryFromTags(post.frontmatter.tags)
-    if (category) {
-      categories.add(category)
-    }
-  })
-  
-  return Array.from(categories).sort()
-}
-
-export function getPostsByCategory(category: string): PostPreview[] {
-  const posts = getAllPosts()
-  return posts.filter(post => {
-    const postCategory = inferCategoryFromTags(post.frontmatter.tags)
-    return postCategory?.toLowerCase() === category.toLowerCase()
-  })
-}
-
-function inferCategoryFromTags(tags: string[]): string | null {
-  // Define category mappings based on tags
-  const categoryMappings: Record<string, string[]> = {
-    'Unity': ['unity', 'unity3d', 'game-development', 'gamedev'],
-    'Tools': ['tools', 'utility', 'converter', 'calculator'],
-    'C#/.NET': ['csharp', 'dotnet', '.net', 'programming'],
-    'Mobile': ['flutter', 'dart', 'mobile', 'android'],
-    'Web': ['web', 'javascript', 'typescript', 'react', 'nextjs']
-  }
-  
-  for (const [category, categoryTags] of Object.entries(categoryMappings)) {
-    if (tags.some(tag => categoryTags.includes(tag.toLowerCase()))) {
-      return category
-    }
-  }
-  
-  // Default category based on common tags
-  if (tags.some(tag => tag.toLowerCase().includes('unity'))) return 'Unity'
-  if (tags.some(tag => ['tool', 'utility', 'converter'].includes(tag.toLowerCase()))) return 'Tools'
-  if (tags.some(tag => ['flutter', 'dart'].includes(tag.toLowerCase()))) return 'Mobile'
-  
-  return 'General'
-}
 
 export function getRelatedPosts(currentSlug: string, limit: number = 3): PostPreview[] {
   const allPosts = getAllPosts()
@@ -198,11 +132,14 @@ export function getAllPostSlugs() {
     const fileNames = fs.readdirSync(postsDirectory)
     return fileNames
       .filter((name) => name.endsWith('.md'))
-      .map((fileName) => ({
-        params: {
-          slug: fileName.replace(/\.md$/, ''),
-        },
-      }))
+      .map((fileName) => {
+        const slug = fileName.replace(/\.md$/, '')
+        return {
+          params: {
+            slug: encodeURIComponent(slug), // URL encode slugs with spaces
+          },
+        }
+      })
   } catch (error) {
     console.error('Error getting post slugs:', error)
     return []

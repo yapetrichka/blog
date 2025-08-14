@@ -1,43 +1,43 @@
 import type { Metadata } from 'next'
-import { Rajdhani, Orbitron } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { GSAPProvider } from '@/components/animations/GSAPProvider'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import SponsorButtons from '@/components/ui/SponsorButtons'
 
-const rajdhani = Rajdhani({ 
+const inter = Inter({ 
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-rajdhani',
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-inter',
   display: 'swap',
 })
 
-const orbitron = Orbitron({ 
+const jetbrainsMono = JetBrains_Mono({ 
   subsets: ['latin'],
-  weight: ['400', '500', '700', '900'],
-  variable: '--font-orbitron',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-jetbrains',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Dream Code Studio - Cyberpunk Unity & .NET Development',
-  description: 'Sharing knowledge on Unity and .NET development in a cyberpunk world. Practical tutorials, tools, and insights for future developers.',
-  keywords: ['Unity', '.NET', 'Game Development', 'C#', 'Programming', 'Cyberpunk', 'Futuristic', 'Tech'],
-  authors: [{ name: 'dreamcodestudio' }],
-  creator: 'dreamcodestudio',
+  title: 'Yaroslav Petrichka - Solo Founder',
+  description: 'Building digital products as a solo founder. Sharing insights on Unity, .NET, and the journey of independent software creation.',
+  keywords: ['Solo Founder', 'Unity', '.NET', 'Product Development', 'C#', 'Programming', 'Software Engineering', 'Indie Developer'],
+  authors: [{ name: 'Yaroslav Petrichka' }],
+  creator: 'Yaroslav Petrichka',
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://dreamcodestudio.github.io',
-    title: 'Dream Code Studio - Cyberpunk Unity & .NET Development',
-    description: 'Sharing knowledge on Unity and .NET development in a cyberpunk world',
-    siteName: 'Dream Code Studio',
+    title: 'Yaroslav Petrichka - Solo Founder',
+    description: 'Building digital products as a solo founder. Insights on independent software creation.',
+    siteName: 'Yaroslav Petrichka',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dream Code Studio - Cyberpunk Unity & .NET Development',
-    description: 'Sharing knowledge on Unity and .NET development in a cyberpunk world',
+    title: 'Yaroslav Petrichka - Solo Founder',
+    description: 'Building digital products as a solo founder.',
   },
 }
 
@@ -48,9 +48,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${rajdhani.variable} ${orbitron.variable}`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable}`}>
         <GSAPProvider>
-          <div className="min-h-screen flex flex-col bg-cyberpunk-base text-text-primary font-cyberpunk relative overflow-hidden">
+          <div className="min-h-screen flex flex-col bg-white text-text-primary font-sans relative">
             <Header />
             <main className="flex-1 relative z-10">
               {children}

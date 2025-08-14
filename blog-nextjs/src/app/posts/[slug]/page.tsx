@@ -22,7 +22,7 @@ export default async function PostPage({ params }: PostPageProps) {
 // Generate static params for all posts
 export async function generateStaticParams() {
   const slugs = getAllPostSlugs()
-  return slugs.map((slug) => ({
-    slug: slug.params.slug
+  return slugs.map((slugData) => ({
+    slug: slugData.params.slug
   }))
 } 

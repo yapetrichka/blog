@@ -66,8 +66,18 @@ export function getAllPosts(): PostPreview[] {
 
 export function getPostBySlug(slug: string): Post | null {
   try {
-    // Decode URL-encoded characters (e.g., %20 -> space)
-    const decodedSlug = decodeURIComponent(slug)
+    // Simple decode - only decode once since we're not double-encoding anymore
+    let decodedSlug = slug
+    try {
+      // Only decode if the slug contains encoded characters
+      if (slug.includes('%')) {
+        decodedSlug = decodeURIComponent(slug)
+      }
+    } catch (e) {
+      // If decoding fails, use original slug
+      decodedSlug = slug
+    }
+    
     const fullPath = path.join(postsDirectory, `${decodedSlug}.md`)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     const { data, content } = matter(fileContents)
@@ -90,8 +100,15 @@ export function getPostBySlug(slug: string): Post | null {
 
 export function getRelatedPosts(currentSlug: string, limit: number = 3): PostPreview[] {
   const allPosts = getAllPosts()
-  // Decode URL-encoded characters for comparison
-  const decodedCurrentSlug = decodeURIComponent(currentSlug)
+  // Simple decode for comparison
+  let decodedCurrentSlug = currentSlug
+  try {
+    if (currentSlug.includes('%')) {
+      decodedCurrentSlug = decodeURIComponent(currentSlug)
+    }
+  } catch (e) {
+    decodedCurrentSlug = currentSlug
+  }
   const currentPost = allPosts.find(post => post.slug === decodedCurrentSlug)
   
   if (!currentPost) return []
@@ -136,7 +153,7 @@ export function getAllPostSlugs() {
         const slug = fileName.replace(/\.md$/, '')
         return {
           params: {
-            slug: encodeURIComponent(slug), // URL encode slugs with spaces
+            slug: slug, // Keep original slug without encoding
           },
         }
       })

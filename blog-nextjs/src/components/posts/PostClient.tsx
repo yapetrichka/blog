@@ -4,6 +4,9 @@ import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { Calendar, Clock, ArrowLeft, Share2 } from 'lucide-react'
 import { gsap } from 'gsap'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import rehypeRaw from 'rehype-raw'
 import { Breadcrumb } from '@/components/ui/Breadcrumb'
 import type { Post } from '@/lib/posts'
 
@@ -62,20 +65,46 @@ export default function PostClient({ post }: PostClientProps) {
     return `${time} min read`
   }
 
-  // Convert markdown to HTML (minimalist implementation)
-  const renderMarkdown = (content: string) => {
-    return content
-      .replace(/^### (.*$)/gm, '<h3 class="text-xl font-bold mt-6 mb-3 text-gray-900">$1</h3>')
-      .replace(/^## (.*$)/gm, '<h2 class="text-2xl font-bold mt-8 mb-4 text-gray-900">$1</h2>')
-      .replace(/^# (.*$)/gm, '<h1 class="text-3xl font-bold mt-8 mb-4 text-gray-900">$1</h1>')
-      .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-gray-900">$1</strong>')
-      .replace(/\*(.*?)\*/g, '<em class="italic text-gray-700">$1</em>')
-      .replace(/`(.*?)`/g, '<code class="bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded text-sm font-mono">$1</code>')
-      .replace(/\n\n/g, '</p><p class="mb-4 text-gray-700">')
-      .replace(/^- (.*$)/gm, '<li class="ml-4 text-gray-700">$1</li>')
-      .replace(/^\* (.*$)/gm, '<li class="ml-4 text-gray-700">$1</li>')
-      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="rounded-lg my-6 w-full border border-gray-200" />')
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-black hover:underline transition-colors">$1</a>')
+  // Custom components for ReactMarkdown
+  const markdownComponents: any = {
+    // Headers
+    h1: ({ children, ...props }: any) => (
+      <h1 className="text-3xl font-bold mt-8 mb-4 text-gray-900" {...props}>{children}</h1>
+    ),
+    h2: ({ children, ...props }: any) => (
+      <h2 className="text-2xl font-bold mt-8 mb-4 text-gray-900" {...props}>{children}</h2>
+    ),
+    h3: ({ children, ...props }: any) => (
+      <h3 className="text-xl font-bold mt-6 mb-3 text-gray-900" {...props}>{children}</h3>
+    ),
+    // Paragraphs
+    p: ({ children, ...props }: any) => (
+      <p className="mb-4 text-gray-700 leading-relaxed" {...props}>{children}</p>
+    ),
+    // Lists
+    ul: ({ children, ...props }: any) => (
+      <ul className="my-4 space-y-1" {...props}>{children}</ul>
+    ),
+    li: ({ children, ...props }: any) => (
+      <li className="ml-6 mb-2 text-gray-700 list-disc" {...props}>{children}</li>
+    ),
+    // Inline formatting
+    strong: ({ children, ...props }: any) => (
+      <strong className="font-bold text-gray-900" {...props}>{children}</strong>
+    ),
+    em: ({ children, ...props }: any) => (
+      <em className="italic text-gray-700" {...props}>{children}</em>
+    ),
+    code: ({ children, ...props }: any) => (
+      <code className="bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded text-sm font-mono" {...props}>{children}</code>
+    ),
+    // Links and images
+    a: ({ href, children, ...props }: any) => (
+      <a href={href} className="text-black hover:underline transition-colors" {...props}>{children}</a>
+    ),
+    img: ({ src, alt, ...props }: any) => (
+      <img src={src} alt={alt} className="rounded-lg my-6 w-full border border-gray-200" {...props} />
+    ),
   }
 
   const breadcrumbItems = [
@@ -136,10 +165,13 @@ export default function PostClient({ post }: PostClientProps) {
       {/* Content */}
       <div ref={contentRef} className="max-w-4xl mx-auto px-6 pt-4 pb-6">
         <article className="prose prose-lg max-w-none">
-          <div 
-            className="leading-relaxed text-gray-700 [&>p]:mb-4 [&>p]:text-gray-700 [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:mt-8 [&>h1]:mb-4 [&>h1]:text-gray-900 [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:mt-8 [&>h2]:mb-4 [&>h2]:text-gray-900 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:mt-6 [&>h3]:mb-3 [&>h3]:text-gray-900 [&>ul]:my-4 [&>ul]:ml-6 [&>li]:mb-2 [&>li]:text-gray-700 [&>code]:bg-gray-100 [&>code]:text-gray-800 [&>code]:px-1.5 [&>code]:py-0.5 [&>code]:rounded [&>code]:text-sm [&>code]:font-mono [&>img]:rounded-lg [&>img]:my-6 [&>img]:border [&>img]:border-gray-200 [&>a]:text-black [&>a]:hover:underline [&>a]:transition-colors"
-            dangerouslySetInnerHTML={{ __html: renderMarkdown(post.content) }}
-          />
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeRaw]}
+            components={markdownComponents}
+          >
+            {post.content}
+          </ReactMarkdown>
         </article>
 
         {/* Footer Navigation */}

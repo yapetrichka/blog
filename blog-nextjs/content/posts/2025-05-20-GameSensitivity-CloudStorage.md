@@ -1,13 +1,6 @@
 ---
 title: 'Major Optimization: Cloud Storage for Configs Updates'
 date: '2025-05-20'
-tags:
-  - flutter
-  - projects
-  - dart
-  - calculator
-  - aim
-  - cloud
 excerpt: >-
   Gaming Sensitivity Calculator app now integrates cloud storage for automatic
   configuration updates, bringing seamless experience with local caching and

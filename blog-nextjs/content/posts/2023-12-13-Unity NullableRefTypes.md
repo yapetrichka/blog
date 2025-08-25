@@ -1,12 +1,6 @@
 ---
 title: Setup Nullable reference type in Unity
 date: '2023-12-13'
-tags:
-  - unity
-  - nullable
-  - c#
-  - dotnet
-  - analysis
 excerpt: "\U0001F3AF What is Nullable reference type?\r\n\r\nNullable reference type explicitly specifies whether a variable must contain a value or may not.\r\n\r\n Key Features\r\n\r\n<ul>\r\n  <li>Design-time analysis</li>..."
 ---
 

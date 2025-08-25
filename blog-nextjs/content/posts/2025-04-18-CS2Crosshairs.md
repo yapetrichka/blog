@@ -1,17 +1,6 @@
 ---
 title: CS2 Crosshairs Pro is Now Available!
 date: '2025-04-18'
-tags:
-  - flutter
-  - projects
-  - dart
-  - gaming
-  - cs2
-  - crosshair
-  - aim
-  - helper
-  - mobile
-  - iOS
 excerpt: "CS2 Crosshairs Pro has officially launched worldwide!\r\n\r\nElevate your Counter-Strike 2 gameplay with the ultimate crosshair customization tool. Fine-tune your aim with precision, choose from a varie..."
 ---
 

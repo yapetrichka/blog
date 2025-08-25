@@ -1,13 +1,6 @@
 ---
 title: Automating publishing Unity packages to npm registry
 date: '2023-10-22'
-tags:
-  - unity
-  - unity-packages
-  - workflow
-  - ci
-  - npm
-  - npmjs
 excerpt: "\U0001F3AF Why npmjs registry?\r\n\r\n<ul>\r\n  <li>Ready up to open source projects</li>\r\n  <li>In-box GitHub Actions solution</li>\r\n  <li>CLI support</li>\r\n</ul>\r\n\r\n1. Generate Access Token in npmjs registry..."
 ---
 

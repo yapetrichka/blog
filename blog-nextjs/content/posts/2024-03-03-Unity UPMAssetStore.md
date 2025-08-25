@@ -1,13 +1,6 @@
 ---
 title: The secret to publishing UPM package to the Asset Store
 date: '2024-03-03'
-tags:
-  - unity
-  - asset store
-  - c#
-  - dotnet
-  - upm
-  - package
 excerpt: "\U0001F4D8 Unity native solution\r\n\r\nIn 2018, Unity's developers released a centralized repository for iterative updates to their Editor engine and extensions called UPM - Unity Package Manager.\r\n\r\nLater, t..."
 ---
 

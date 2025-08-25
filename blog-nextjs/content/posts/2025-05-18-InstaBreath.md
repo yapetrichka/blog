@@ -1,14 +1,6 @@
 ---
 title: I excited to announce the release of InstaBreath!
 date: '2025-05-18'
-tags:
-  - flutter
-  - projects
-  - dart
-  - tracker
-  - calculator
-  - mobile
-  - iOS
 excerpt: >-
   InstaBreath offers precise blood alcohol concentration calculations
   considering all important parameters: gender, physical metrics, drink type,

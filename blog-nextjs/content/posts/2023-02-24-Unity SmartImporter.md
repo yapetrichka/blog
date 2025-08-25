@@ -1,12 +1,6 @@
 ---
 title: Smart Importer released
 date: '2023-02-24'
-tags:
-  - unity
-  - unity-editor
-  - unity-utilities
-  - unity-packages
-  - tools
 excerpt: Allows import Unity packages (.unitypackage) to custom folder, ignoring initial assets paths.
 ---
 

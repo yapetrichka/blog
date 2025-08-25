@@ -1,16 +1,6 @@
 ---
 title: Game Aim Converter reached 500k downloads
 date: '2024-10-06'
-tags:
-  - flutter
-  - projects
-  - dart
-  - calculator
-  - aim
-  - converter
-  - sensitivity
-  - iOS
-  - Android
 excerpt: "Game Aim Converter reached 500k downloads worldwide in 2024.\r\n\r\n \U0001F99D User-Friendly Advantages\r\nGame Aim Converter is app tailored for convenience, allowing you to focus on your gameplay rather than t..."
 ---
 

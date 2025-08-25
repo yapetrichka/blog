@@ -1,11 +1,6 @@
 ---
 title: Auto Keystore
 date: '2023-01-29'
-tags:
-  - unity
-  - asset store
-  - android
-  - tools
 excerpt: AutoKeystore allows store android keystore between sessions, without manual input everytime.
 ---
 AutoKeystore allows store android keystore between sessions, without manual input everytime.

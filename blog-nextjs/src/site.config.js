@@ -18,7 +18,7 @@ const siteConfig = {
   
   // Social media links
   social: {
-    github: 'https://github.com/dreamcodestudio',
+    github: 'https://github.com/yapetrichka',
     email: 'dreamcodestudio@yandex.com',
     telegram: 'https://t.me/yaroslav_petrichka',
     tiktok: 'https://www.tiktok.com/@yaroslav.petrichka',

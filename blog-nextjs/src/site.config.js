@@ -20,8 +20,9 @@ const siteConfig = {
   social: {
     github: 'https://github.com/dreamcodestudio',
     email: 'dreamcodestudio@yandex.com',
-    tiktok: 'https://www.tiktok.com/@dreamcodestudio',
-    youtube: 'https://www.youtube.com/@dreamcodestudio'
+    telegram: 'https://t.me/yaroslav_petrichka',
+    tiktok: 'https://www.tiktok.com/@yaroslav.petrichka',
+    youtube: 'https://www.youtube.com/@yaroslav.petrichka'
   },
 
   boosty: {

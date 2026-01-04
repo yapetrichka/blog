@@ -28,7 +28,7 @@ const siteConfig = {
   boosty: {
     username: 'dreamcodestudio',
     donateUrl: 'https://nowpayments.io/donation/dreamcode',
-    enabled: true,
+    enabled: false,
     texts: {
       sponsor: 'Support Me'
     }

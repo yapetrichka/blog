@@ -9,13 +9,13 @@ export function Header() {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Posts', href: '/posts' },
     { name: 'Projects', href: '/projects' },
+    { name: 'Posts', href: '/posts' },
     { name: 'Support', href: '/support' },
   ]
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -34,7 +34,7 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-gray-900 transition-colors duration-200 text-sm font-medium"
+                className="text-gray-600 hover:text-gray-900 transition-colors duration-200 text-sm font-medium link-underline"
               >
                 {item.name}
               </Link>

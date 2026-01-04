@@ -7,7 +7,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-gray-50 border-t border-gray-200 mt-20">
+    <footer className="bg-gray-50/50 border-t border-gray-200/80 mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
@@ -18,7 +18,7 @@ export function Footer() {
                 alt="Yaroslav Petrichka Avatar"
                 width={56}
                 height={56}
-                className="rounded-full ring-2 ring-gray-200 shadow-sm"
+                className="rounded-full ring-1 ring-black/10 shadow-md"
               />
               <div>
                 <h3 className="font-semibold text-lg text-gray-900">
@@ -36,19 +36,19 @@ export function Footer() {
             </p>
 
             {/* Social Links */}
-            <div className="flex space-x-4">
+            <div className="flex space-x-2">
               <a
                 href={siteConfig.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
+                className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200"
                 aria-label="GitHub"
               >
                 <Github className="w-5 h-5" />
               </a>
               <a
                 href={`mailto:${siteConfig.social.email}`}
-                className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
+                className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200"
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
@@ -57,7 +57,7 @@ export function Footer() {
                 href={siteConfig.social.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
+                className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200"
                 aria-label="TikTok"
               >
                 <Music className="w-5 h-5" />
@@ -66,7 +66,7 @@ export function Footer() {
                 href={siteConfig.social.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-gray-900 transition-colors duration-200"
+                className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-all duration-200"
                 aria-label="YouTube"
               >
                 <Video className="w-5 h-5" />

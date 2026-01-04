@@ -41,6 +41,15 @@ const apps = [
         url: 'https://apps.apple.com/app/unit-converter-mobile/id6738687525'
       }
     ]
+  },
+  {
+    name: 'Game Meta Hub',
+    links: [
+      {
+        platform: 'App Store',
+        url: 'https://apps.apple.com/us/app/game-meta-hub/id6755838608'
+      }
+    ]
   }
 ]
 

@@ -8,43 +8,47 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Minimalist Black & White Color Palette
+        // Professional Monochromatic Palette
         black: '#000000',
         white: '#FFFFFF',
         gray: {
           50: '#FAFAFA',   // Lightest background
-          100: '#F5F5F5',  // Light background (code blocks)
-          200: '#E5E5E5',  // Borders
-          300: '#D4D4D4',  // Hover borders
-          400: '#A3A3A3',  // Disabled text
-          500: '#737373',  // Secondary text
-          600: '#525252',  // Primary text light
-          700: '#404040',  // Heading text light
-          800: '#262626',  // Heading text
-          900: '#171717',  // Primary text
-          950: '#0A0A0A',  // Darkest text
+          100: '#F4F4F5',  // Light background (warmer)
+          200: '#E4E4E7',  // Borders (warmer)
+          300: '#D4D4D8',  // Hover borders
+          400: '#A1A1AA',  // Muted text
+          500: '#71717A',  // Secondary text
+          600: '#52525B',  // Body text
+          700: '#3F3F46',  // Subheadings
+          800: '#27272A',  // Dark text
+          900: '#18181B',  // Primary text (warmer)
+          950: '#09090B',  // Deepest black
         },
-        // Semantic colors for easy migration
+        // Semantic colors
         bg: {
-          primary: '#FFFFFF',      // White background
-          secondary: '#FAFAFA',    // Light gray background
-          tertiary: '#F5F5F5',     // Card background
-          blur: 'rgba(255, 255, 255, 0.95)', // Blur background
+          primary: '#FFFFFF',
+          secondary: '#FAFAFA',
+          tertiary: '#F4F4F5',
+          elevated: '#FFFFFF',
+          blur: 'rgba(255, 255, 255, 0.97)',
         },
         text: {
-          primary: '#171717',      // Dark text
-          secondary: '#737373',    // Gray text
-          white: '#FFFFFF',        // White (for dark backgrounds)
-          black: '#000000',        // Pure black
+          primary: '#18181B',
+          secondary: '#52525B',
+          tertiary: '#71717A',
+          white: '#FFFFFF',
+          black: '#000000',
         },
         accent: {
-          primary: '#000000',      // Black accent
-          secondary: '#737373',    // Gray accent
+          primary: '#000000',
+          hover: '#18181B',
+          muted: '#27272A',
         },
         border: {
-          primary: '#E5E5E5',      // Light gray borders
-          secondary: '#D4D4D4',    // Hover borders
-          tertiary: '#F5F5F5',     // Very light borders
+          primary: '#E4E4E7',
+          secondary: '#D4D4D8',
+          strong: '#A1A1AA',
+          subtle: '#F4F4F5',
         },
       },
       spacing: {
@@ -159,25 +163,28 @@ module.exports = {
         },
       },
       boxShadow: {
-        // Minimalist shadows
-        'sm': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-        'DEFAULT': '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-        'md': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'lg': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-        'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-        '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-        'inner': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+        // Professional shadows
+        'xs': '0 1px 2px rgba(0, 0, 0, 0.04)',
+        'sm': '0 1px 3px rgba(0, 0, 0, 0.06)',
+        'DEFAULT': '0 2px 4px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04)',
+        'md': '0 4px 8px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.04)',
+        'lg': '0 8px 16px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04)',
+        'xl': '0 16px 32px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.04)',
+        '2xl': '0 24px 48px rgba(0, 0, 0, 0.12)',
+        'inner': 'inset 0 1px 2px rgba(0, 0, 0, 0.04)',
+        'avatar': '0 0 0 1px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.08)',
+        'avatar-hover': '0 0 0 1px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.12)',
         'none': 'none',
       },
       borderRadius: {
         'none': '0',
-        'sm': '2px',
-        'DEFAULT': '4px',
-        'md': '6px',
-        'lg': '8px',
+        'sm': '4px',
+        'DEFAULT': '6px',
+        'md': '8px',
+        'lg': '10px',
         'xl': '12px',
         '2xl': '16px',
-        '3xl': '24px',
+        '3xl': '20px',
         'full': '9999px',
       },
     },

@@ -95,7 +95,7 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
                 alt="Yaroslav Petrichka"
                 width={120}
                 height={120}
-                className="rounded-full ring-2 ring-gray-300 hover:ring-gray-400 shadow-xl transition-all duration-200"
+                className="rounded-full ring-1 ring-black/10 shadow-xl grayscale contrast-[1.1]"
                 priority
               />
             </div>
@@ -106,23 +106,23 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
             
             <div ref={descriptionRef} className="max-w-3xl mx-auto mb-10">
               <p className="text-xl text-gray-600 leading-relaxed">
-                Sharing Coding, AI & Tech knowledge 🔥
+                Sharing Coding, AI & Tech knowledge.
                 <br />
-                Teaching through building 📚
+                Teaching through building.
               </p>
             </div>
             
             <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/posts"
-                className="inline-flex items-center px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-900 transition-colors duration-200 font-medium"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-gray-900 text-white rounded-lg hover:bg-black shadow-md hover:shadow-lg transition-all duration-200 font-medium"
               >
                 Read Blog Posts
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
               <Link
                 href="/projects"
-                className="inline-flex items-center px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-200 font-medium"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-gray-700 border border-gray-300 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 font-medium"
               >
                 View Projects
               </Link>
@@ -147,9 +147,9 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
             {techStack.map((tech, index) => {
               const Icon = tech.icon
               return (
-                <div 
+                <div
                   key={index}
-                  className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow duration-200 gsap-fade-in"
+                  className="bg-white p-6 rounded-xl border border-gray-200/80 hover:border-gray-300 hover:shadow-md transition-all duration-200 gsap-fade-in"
                 >
                   <Icon className="w-8 h-8 text-gray-700 mb-4" />
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
@@ -188,9 +188,9 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {recentPosts.map((post, index) => (
-              <article 
+              <article
                 key={post.slug}
-                className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-200 gsap-fade-in"
+                className="bg-white border border-gray-200/80 rounded-xl overflow-hidden hover:border-gray-300 hover:shadow-md transition-all duration-200 gsap-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="p-6">
@@ -232,7 +232,7 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/support"
-              className="inline-flex items-center px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-900 transition-colors duration-200 font-medium"
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-gray-900 text-white rounded-lg hover:bg-black shadow-md hover:shadow-lg transition-all duration-200 font-medium"
             >
               Get in Touch
             </Link>
@@ -240,7 +240,7 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
               href={`https://github.com/dreamcodestudio`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-200 font-medium"
+              className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-gray-700 border border-gray-300 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 font-medium"
             >
               <GitBranch className="mr-2 w-5 h-5" />
               View GitHub

@@ -3,10 +3,10 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Support | Yaroslav Petrichka',
-  description: "Get support for Game Aim Converter, CS2 Crosshairs, Game Meta Hub, and Univerter. I'll prioritize urgent issues, but please be patient—I'm probably coding somewhere. Thank you!",
+  description: "Get support for Game Aim Converter, CS2 Crosshairs, Game Meta Hub, Univerter, and TOshechka. I'll prioritize urgent issues, but please be patient—I'm probably coding somewhere. Thank you!",
   openGraph: {
     title: 'Support | Yaroslav Petrichka',
-    description: "Get support for Game Aim Converter, CS2 Crosshairs, Game Meta Hub, and Univerter.",
+    description: "Get support for Game Aim Converter, CS2 Crosshairs, Game Meta Hub, Univerter, and TOshechka.",
     type: 'website'
   }
 }
@@ -33,6 +33,8 @@ export default function SupportPage() {
             <Link href="#game-meta-hub" className="text-gray-700 hover:text-black transition-colors duration-200">Game Meta Hub</Link>
             <span className="text-gray-300">•</span>
             <Link href="#univerter" className="text-gray-700 hover:text-black transition-colors duration-200">Univerter</Link>
+            <span className="text-gray-300">•</span>
+            <Link href="#toshechka" className="text-gray-700 hover:text-black transition-colors duration-200">TOshechka</Link>
           </nav>
         </div>
 
@@ -94,9 +96,26 @@ export default function SupportPage() {
             <div className="bg-white border border-gray-200 rounded-lg p-6">
               <h2 className="text-2xl font-bold mb-4 text-gray-900">Univerter</h2>
               <div className="flex flex-wrap gap-3">
-                <a 
-                  href="https://t.me/unit_m_converter" 
-                  target="_blank" 
+                <a
+                  href="https://t.me/unit_m_converter"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+                >
+                  📱 Telegram Support
+                </a>
+              </div>
+            </div>
+          </section>
+
+          {/* TOshechka */}
+          <section id="toshechka" className="gsap-slide-up">
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">TOshechka</h2>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://t.me/+R8ujYqFM7zM1YTVi"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors duration-200"
                 >

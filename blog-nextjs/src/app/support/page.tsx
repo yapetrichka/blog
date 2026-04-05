@@ -3,10 +3,10 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Support | Yaroslav Petrichka',
-  description: "Get support for Game Aim Converter, CS2 Crosshairs, Game Meta Hub, Univerter, and TOshechka. I'll prioritize urgent issues, but please be patient—I'm probably coding somewhere. Thank you!",
+  description: "Get support for Game Aim Converter, CS2 Crosshairs, Bookaura, Game Meta Hub, Univerter, and TOshechka. I'll prioritize urgent issues, but please be patient—I'm probably coding somewhere. Thank you!",
   openGraph: {
     title: 'Support | Yaroslav Petrichka',
-    description: "Get support for Game Aim Converter, CS2 Crosshairs, Game Meta Hub, Univerter, and TOshechka.",
+    description: "Get support for Game Aim Converter, CS2 Crosshairs, Bookaura, Game Meta Hub, Univerter, and TOshechka.",
     type: 'website'
   }
 }
@@ -29,6 +29,8 @@ export default function SupportPage() {
             <Link href="#game-aim-converter" className="text-gray-700 hover:text-black transition-colors duration-200">Game Aim Converter</Link>
             <span className="text-gray-300">•</span>
             <Link href="#cs2-crosshairs" className="text-gray-700 hover:text-black transition-colors duration-200">CS2 Crosshairs</Link>
+            <span className="text-gray-300">•</span>
+            <Link href="#bookaura" className="text-gray-700 hover:text-black transition-colors duration-200">Bookaura</Link>
             <span className="text-gray-300">•</span>
             <Link href="#game-meta-hub" className="text-gray-700 hover:text-black transition-colors duration-200">Game Meta Hub</Link>
             <span className="text-gray-300">•</span>
@@ -65,6 +67,23 @@ export default function SupportPage() {
                 <a 
                   href="https://t.me/cs_crosshairs" 
                   target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors duration-200"
+                >
+                  📱 Telegram Support
+                </a>
+              </div>
+            </div>
+          </section>
+
+          {/* Bookaura */}
+          <section id="bookaura" className="gsap-slide-up">
+            <div className="bg-white border border-gray-200 rounded-lg p-6">
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">Bookaura</h2>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://t.me/reading_tracker_bookaura"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors duration-200"
                 >

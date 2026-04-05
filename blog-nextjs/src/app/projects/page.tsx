@@ -34,6 +34,15 @@ const apps = [
     ]
   },
   {
+    name: 'Bookaura',
+    links: [
+      {
+        platform: 'App Store',
+        url: 'https://apps.apple.com/app/reading-tracker-bookaura/id6760946238'
+      }
+    ]
+  },
+  {
     name: 'Univerter',
     links: [
       {

@@ -12,9 +12,9 @@ const siteConfig = {
   // baseUrl: 'http://localhost:3000',                 // Development
   
   // Дополнительная информация о сайте
-  siteName: 'Dream Code Studio',
-  description: 'Unity and .NET development blog with modern animations',
-  author: 'dreamcodestudio',
+  siteName: 'Yaroslav Petrichka',
+  description: 'Unity and mobile development blog',
+  author: 'Yaroslav Petrichka',
   
   // Social media links
   social: {

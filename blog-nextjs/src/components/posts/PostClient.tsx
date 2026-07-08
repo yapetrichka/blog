@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { Calendar, Clock, ArrowLeft, Share2 } from 'lucide-react'
 import { gsap } from 'gsap'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -16,46 +15,24 @@ interface PostClientProps {
 
 export default function PostClient({ post }: PostClientProps) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const headerRef = useRef<HTMLDivElement>(null)
-  const contentRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header animation
-      gsap.fromTo(
-        headerRef.current,
-        { opacity: 0, y: 30 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          duration: 0.8,
-          ease: "power2.out"
-        }
-      )
+    const mm = gsap.matchMedia()
 
-      // Content animation
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      const blocks = gsap.utils.toArray<HTMLElement>('[data-animate]', containerRef.current)
       gsap.fromTo(
-        contentRef.current,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: "power2.out",
-          delay: 0.2
-        }
+        blocks,
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.06 }
       )
-    }, containerRef)
+    })
 
-    return () => ctx.revert()
+    return () => mm.revert()
   }, [])
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
+    return new Date(dateString).toISOString().slice(0, 10).replace(/-/g, '.')
   }
 
   const getReadingTime = (content: string) => {
@@ -65,46 +42,21 @@ export default function PostClient({ post }: PostClientProps) {
     return `${time} min read`
   }
 
-  // Custom components for ReactMarkdown
-  const markdownComponents: any = {
-    // Headers
-    h1: ({ children, ...props }: any) => (
-      <h1 className="text-3xl font-bold mt-8 mb-4 text-gray-900" {...props}>{children}</h1>
-    ),
-    h2: ({ children, ...props }: any) => (
-      <h2 className="text-2xl font-bold mt-8 mb-4 text-gray-900" {...props}>{children}</h2>
-    ),
-    h3: ({ children, ...props }: any) => (
-      <h3 className="text-xl font-bold mt-6 mb-3 text-gray-900" {...props}>{children}</h3>
-    ),
-    // Paragraphs
-    p: ({ children, ...props }: any) => (
-      <p className="mb-4 text-gray-700 leading-relaxed" {...props}>{children}</p>
-    ),
-    // Lists
-    ul: ({ children, ...props }: any) => (
-      <ul className="my-4 space-y-1" {...props}>{children}</ul>
-    ),
-    li: ({ children, ...props }: any) => (
-      <li className="ml-6 mb-2 text-gray-700 list-disc" {...props}>{children}</li>
-    ),
-    // Inline formatting
-    strong: ({ children, ...props }: any) => (
-      <strong className="font-bold text-gray-900" {...props}>{children}</strong>
-    ),
-    em: ({ children, ...props }: any) => (
-      <em className="italic text-gray-700" {...props}>{children}</em>
-    ),
-    code: ({ children, ...props }: any) => (
-      <code className="bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded text-sm font-mono" {...props}>{children}</code>
-    ),
-    // Links and images
-    a: ({ href, children, ...props }: any) => (
-      <a href={href} className="text-black hover:underline transition-colors" {...props}>{children}</a>
-    ),
-    img: ({ src, alt, ...props }: any) => (
-      <img src={src} alt={alt} className="rounded-lg my-6 w-full border border-gray-200" {...props} />
-    ),
+  // Behavior-only overrides — styling lives in globals.css .prose
+  const markdownComponents = {
+    a: ({ href, children, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+      const isExternal = typeof href === 'string' && /^https?:\/\//.test(href)
+      return (
+        <a
+          href={href}
+          target={isExternal ? '_blank' : undefined}
+          rel={isExternal ? 'noopener noreferrer' : undefined}
+          {...props}
+        >
+          {children}
+        </a>
+      )
+    },
   }
 
   const breadcrumbItems = [
@@ -113,58 +65,43 @@ export default function PostClient({ post }: PostClientProps) {
   ]
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-white">
+    <div ref={containerRef} className="mx-auto max-w-3xl px-6">
       {/* Header */}
-      <div ref={headerRef} className="bg-white">
-        <div className="max-w-4xl mx-auto px-6 py-6 pb-0">
-          {/* Breadcrumb Navigation */}
-          <div className="mb-4">
-            <Breadcrumb items={breadcrumbItems} />
-          </div>
+      <header className="pt-12 pb-8" data-animate>
+        <Breadcrumb items={breadcrumbItems} />
 
-          {/* Title */}
-          <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900">
-            {post.frontmatter.title}
-          </h1>
+        <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900">
+          {post.frontmatter.title}
+        </h1>
 
-          {/* Post Meta and Share */}
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
-              <div className="flex items-center gap-1">
-                <Calendar className="w-4 h-4" />
-                <time dateTime={post.frontmatter.date}>
-                  {formatDate(post.frontmatter.date)}
-                </time>
-              </div>
-              <div className="flex items-center gap-1">
-                <Clock className="w-4 h-4" />
-                <span>{getReadingTime(post.content)}</span>
-              </div>
-            </div>
+        <div className="flex flex-wrap items-center justify-between gap-4 mt-6">
+          <p className="font-mono text-xs text-gray-500">
+            <time dateTime={post.frontmatter.date}>
+              {formatDate(post.frontmatter.date)}
+            </time>
+            <span className="mx-2 text-gray-300">·</span>
+            {getReadingTime(post.content)}
+          </p>
 
-            {/* Share Button */}
-            <button 
-              onClick={() => {
-                if (navigator.share) {
-                  navigator.share({
-                    title: post.frontmatter.title,
-                    url: window.location.href
-                  })
-                }
-              }}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <Share2 className="w-3 h-3" />
-              Share
-            </button>
-          </div>
-
+          <button
+            onClick={() => {
+              if (navigator.share) {
+                navigator.share({
+                  title: post.frontmatter.title,
+                  url: window.location.href
+                })
+              }
+            }}
+            className="font-mono text-xs uppercase tracking-label text-gray-500 hover:text-gray-900 transition-colors duration-200"
+          >
+            Share
+          </button>
         </div>
-      </div>
+      </header>
 
       {/* Content */}
-      <div ref={contentRef} className="max-w-4xl mx-auto px-6 pt-4 pb-6">
-        <article className="prose prose-lg max-w-none">
+      <div className="pb-16" data-animate>
+        <article className="prose">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw]}
@@ -175,21 +112,20 @@ export default function PostClient({ post }: PostClientProps) {
         </article>
 
         {/* Footer Navigation */}
-        <div className="mt-12 pt-6 border-t border-gray-200">
+        <div className="mt-12 pt-6 border-t border-border-primary">
           <div className="flex justify-between items-center">
-            <Link 
+            <Link
               href="/posts"
-              className="inline-flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-gray-900 transition-colors"
+              className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200"
             >
-              <ArrowLeft className="w-4 h-4" />
-              All Posts
+              ← All posts
             </Link>
-            
-            <button 
+
+            <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-900 transition-colors"
+              className="font-mono text-xs uppercase tracking-label text-gray-500 hover:text-accent-primary transition-colors duration-200"
             >
-              Back to top ↑
+              Top ↑
             </button>
           </div>
         </div>

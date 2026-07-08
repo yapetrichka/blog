@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
-import { GSAPProvider } from '@/components/animations/GSAPProvider'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import SponsorButtons from '@/components/ui/SponsorButtons'
@@ -22,14 +21,14 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'Yaroslav Petrichka - Solo Founder',
-  description: 'Building digital products as a solo founder. Sharing insights on Unity, .NET, and the journey of independent software creation.',
-  keywords: ['Solo Founder', 'Unity', '.NET', 'Product Development', 'C#', 'Programming', 'Software Engineering', 'Indie Developer'],
+  description: 'Building digital products as a solo founder. Sharing insights on Unity, mobile development, and the journey of independent software creation.',
+  keywords: ['Solo Founder', 'Unity', 'Flutter', 'Mobile Development', 'C#', 'Programming', 'Software Engineering', 'Indie Developer'],
   authors: [{ name: 'Yaroslav Petrichka' }],
   creator: 'Yaroslav Petrichka',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://dreamcodestudio.github.io',
+    url: 'https://www.dream-code-studio.com',
     title: 'Yaroslav Petrichka - Solo Founder',
     description: 'Building digital products as a solo founder. Insights on independent software creation.',
     siteName: 'Yaroslav Petrichka',
@@ -49,16 +48,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${jetbrainsMono.variable}`}>
-        <GSAPProvider>
-          <div className="min-h-screen flex flex-col bg-white text-text-primary font-sans relative">
-            <Header />
-            <main className="flex-1 relative z-10">
-              {children}
-            </main>
-            <Footer />
-            <SponsorButtons />
-          </div>
-        </GSAPProvider>
+        <div className="min-h-screen flex flex-col bg-bg-primary text-text-primary font-sans relative">
+          <Header />
+          <main className="flex-1 relative z-10">
+            {children}
+          </main>
+          <Footer />
+          <SponsorButtons />
+        </div>
       </body>
     </html>
   )

@@ -1,11 +1,13 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -14,28 +16,42 @@ export function Header() {
     { name: 'Support', href: '/support' },
   ]
 
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href)
+
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 bg-bg-blur backdrop-blur-sm border-b border-border-primary">
+      <div className="max-w-5xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex flex-col justify-center">
-            <span className="font-semibold text-lg text-gray-900 leading-tight">
+          <Link href="/" className="flex items-baseline">
+            <span className="font-semibold text-sm tracking-tight text-gray-900">
               Yaroslav Petrichka
             </span>
-            <span className="text-xs text-gray-500 leading-tight">
+            <span className="meta-label ml-3 hidden sm:inline">
               Solo Founder
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
+            {navigation.map((item, index) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-600 hover:text-gray-900 transition-colors duration-200 text-sm font-medium link-underline"
+                className={`text-sm transition-colors duration-200 ${
+                  isActive(item.href)
+                    ? 'text-gray-900 font-medium'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
               >
+                <span
+                  className={`font-mono text-xs mr-1.5 ${
+                    isActive(item.href) ? 'text-accent-primary' : 'text-gray-400'
+                  }`}
+                >
+                  0{index + 1}
+                </span>
                 {item.name}
               </Link>
             ))}
@@ -59,15 +75,26 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
-            <nav className="flex flex-col space-y-1">
-              {navigation.map((item) => (
+          <div className="md:hidden py-4 border-t border-border-primary">
+            <nav className="flex flex-col">
+              {navigation.map((item, index) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg text-sm font-medium"
+                  className={`py-3 text-sm border-b border-border-subtle last:border-b-0 transition-colors duration-200 ${
+                    isActive(item.href)
+                      ? 'text-gray-900 font-medium'
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
+                  <span
+                    className={`font-mono text-xs mr-2 ${
+                      isActive(item.href) ? 'text-accent-primary' : 'text-gray-400'
+                    }`}
+                  >
+                    0{index + 1}
+                  </span>
                   {item.name}
                 </Link>
               ))}

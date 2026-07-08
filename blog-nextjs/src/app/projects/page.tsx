@@ -35,12 +35,6 @@ const apps = [
     slug: 'univerter',
     icon: '/assets/img/projects/univerter.webp',
     primaryUrl: 'https://apps.apple.com/app/unit-converter-mobile/id6738687525'
-  },
-  {
-    name: 'Game Meta Hub',
-    slug: 'game-meta-hub',
-    icon: '/assets/img/projects/game-meta-hub.webp',
-    primaryUrl: 'https://apps.apple.com/us/app/game-meta-hub/id6755838608'
   }
 ]
 
@@ -94,96 +88,95 @@ const tools = [
 
 export default function ProjectsPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-5xl mx-auto px-6 py-8">
-        {/* Apps Section */}
-        <section className="mb-12">
-          <div className="mb-6">
-            <h2 className="text-2xl font-bold mb-2 text-gray-900">Apps</h2>
-            <div className="h-px bg-gray-200"></div>
-          </div>
+    <div className="mx-auto max-w-5xl px-6">
+      {/* Page Header */}
+      <header className="pt-12 pb-8">
+        <span className="meta-label">01 — Work</span>
+        <h1 className="text-4xl font-semibold tracking-tight text-gray-900 mt-4">
+          Projects
+        </h1>
+      </header>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-3 gap-y-5">
-            {apps.map((app) => (
-              <a
-                key={app.slug}
-                href={app.primaryUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col items-center active:scale-95 transition-transform duration-100 ease-in-out"
-              >
-                <div className="relative w-full aspect-square">
-                  <Image
-                    src={app.icon}
-                    alt={app.name}
-                    width={200}
-                    height={200}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <h3 className="mt-2 text-sm font-semibold text-center text-gray-900 line-clamp-2">
-                  {app.name}
-                </h3>
-              </a>
-            ))}
-          </div>
-        </section>
+      {/* Apps Section */}
+      <section className="border-t border-border-primary pt-6 pb-12">
+        <span className="meta-label">01 — Apps</span>
 
-        {/* Tools Section */}
-        <section className="mb-12">
-          <div className="mb-6">
-            <h2 className="text-2xl font-bold mb-2 text-gray-900">Development Tools</h2>
-            <div className="h-px bg-gray-200"></div>
-          </div>
-
-          <ul className="divide-y divide-gray-200 border-b border-gray-200">
-            {tools.map((tool) => {
-              const primary = tool.links[0]
-              return (
-                <li key={tool.name}>
-                  <a
-                    href={primary.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block py-4 px-2 -mx-2 rounded hover:bg-gray-50 transition-colors duration-150"
-                  >
-                    <h3 className="text-base font-semibold text-blue-600 hover:underline">
-                      {tool.name}
-                    </h3>
-                    <div className="mt-1 flex items-center gap-3 text-xs text-gray-500">
-                      <span className="inline-flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-gray-400"></span>
-                        {primary.platform}
-                      </span>
-                    </div>
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
-        </section>
-
-        {/* Stats Section */}
-        <section>
-          <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-            <h3 className="text-xl font-bold mb-4 text-gray-900 text-center">Project Statistics</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-              <div className="border-r border-gray-200 pr-4 last:border-r-0">
-                <div className="text-2xl font-bold text-gray-900 mb-1">{apps.length}</div>
-                <div className="text-gray-600 text-sm">Mobile Apps</div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-8 mt-6">
+          {apps.map((app) => (
+            <a
+              key={app.slug}
+              href={app.primaryUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center"
+            >
+              <div className="relative w-full aspect-square">
+                <Image
+                  src={app.icon}
+                  alt={app.name}
+                  width={200}
+                  height={200}
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <div className="border-r border-gray-200 pr-4 last:border-r-0">
-                <div className="text-2xl font-bold text-gray-900 mb-1">{tools.length}</div>
-                <div className="text-gray-600 text-sm">Unity Tools</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">∞</div>
-                <div className="text-gray-600 text-sm">Lines of Code</div>
-              </div>
-            </div>
+              <h3 className="mt-3 text-sm font-medium text-center text-gray-900 group-hover:text-accent-primary transition-colors duration-200 line-clamp-2">
+                {app.name}
+              </h3>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* Tools Section */}
+      <section className="pb-12">
+        <span className="meta-label">02 — Development tools</span>
+
+        <ul className="mt-6 border-b border-border-primary">
+          {tools.map((tool) => {
+            const primary = tool.links[0]
+            return (
+              <li key={tool.name}>
+                <a
+                  href={primary.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-baseline justify-between py-4 border-t border-border-primary"
+                >
+                  <h3 className="text-base font-medium text-gray-900 group-hover:text-accent-primary transition-colors duration-200">
+                    {tool.name}
+                  </h3>
+                  <span className="font-mono text-xs text-gray-500">
+                    {primary.platform}{' '}
+                    <span className="group-hover:text-accent-primary transition-colors duration-200">
+                      ↗
+                    </span>
+                  </span>
+                </a>
+              </li>
+            )
+          })}
+        </ul>
+      </section>
+
+      {/* Stats Section */}
+      <section className="pb-16">
+        <span className="meta-label">03 — Numbers</span>
+
+        <div className="grid grid-cols-3 gap-8 border-t border-border-primary pt-6 mt-6">
+          <div>
+            <div className="font-mono text-2xl text-gray-900">{apps.length}</div>
+            <div className="meta-label mt-2">Mobile apps</div>
           </div>
-        </section>
-      </div>
+          <div>
+            <div className="font-mono text-2xl text-gray-900">{tools.length}</div>
+            <div className="meta-label mt-2">Unity tools</div>
+          </div>
+          <div>
+            <div className="font-mono text-2xl text-gray-900">∞</div>
+            <div className="meta-label mt-2">Lines of code</div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

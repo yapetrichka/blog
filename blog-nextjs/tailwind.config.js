@@ -26,11 +26,11 @@ module.exports = {
         },
         // Semantic colors
         bg: {
-          primary: '#FFFFFF',
+          primary: '#FAFAFA',
           secondary: '#FAFAFA',
           tertiary: '#F4F4F5',
           elevated: '#FFFFFF',
-          blur: 'rgba(255, 255, 255, 0.97)',
+          blur: 'rgba(250, 250, 250, 0.9)',
         },
         text: {
           primary: '#18181B',
@@ -40,9 +40,9 @@ module.exports = {
           black: '#000000',
         },
         accent: {
-          primary: '#000000',
-          hover: '#18181B',
-          muted: '#27272A',
+          primary: '#5B5BD6',
+          hover: '#5151CD',
+          subtle: '#EDEDFC',
         },
         border: {
           primary: '#E4E4E7',
@@ -104,22 +104,9 @@ module.exports = {
           'Courier New',
           'monospace'
         ],
-        // Keep aliases for compatibility
-        terminal: [
-          'JetBrains Mono',
-          'Monaco', 
-          'Menlo',
-          'monospace'
-        ],
-        cyberpunk: [
-          'Inter',
-          'system-ui',
-          'sans-serif'
-        ],
-        tech: [
-          'JetBrains Mono',
-          'monospace'
-        ],
+      },
+      letterSpacing: {
+        label: '0.08em',
       },
       fontSize: {
         // 8pt Grid Aligned Typography

@@ -2,8 +2,6 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
-import { ArrowRight, Code, Calendar, User, GitBranch, Database, Cloud, Server } from 'lucide-react'
 import { gsap } from 'gsap'
 import { type PostPreview } from '@/lib/posts'
 
@@ -13,56 +11,24 @@ interface HomeClientProps {
 
 export default function HomeClient({ recentPosts }: HomeClientProps) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const titleRef = useRef<HTMLHeadingElement>(null)
-  const descriptionRef = useRef<HTMLDivElement>(null)
-  const buttonsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Reset elements to initial state
-      gsap.set([titleRef.current, descriptionRef.current, buttonsRef.current], {
-        opacity: 0,
-        y: 30
-      })
+    const mm = gsap.matchMedia()
 
-      // Create timeline for sequential animations
-      const tl = gsap.timeline()
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      const blocks = gsap.utils.toArray<HTMLElement>('[data-animate]', containerRef.current)
+      gsap.fromTo(
+        blocks,
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out', stagger: 0.06 }
+      )
+    })
 
-      // Animate title
-      tl.to(titleRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out"
-      })
-
-      // Animate description
-      tl.to(descriptionRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out"
-      }, "-=0.4")
-
-      // Animate buttons
-      tl.to(buttonsRef.current, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out"
-      }, "-=0.4")
-
-    }, containerRef)
-
-    return () => ctx.revert()
+    return () => mm.revert()
   }, [])
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
+    return new Date(dateString).toISOString().slice(0, 10).replace(/-/g, '.')
   }
 
   const getFirstSentence = (text: string) => {
@@ -76,176 +42,125 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
   }
 
   const techStack = [
-    { icon: Code, name: 'Unity & C#', description: 'Game Development' },
-    { icon: Server, name: '.NET Core', description: 'Backend Services' },
-    { icon: Database, name: 'PostgreSQL', description: 'Data Management' },
-    { icon: Cloud, name: 'Cloud Native', description: 'Scalable Architecture' },
+    { name: 'Unity & C#', description: 'Game Development' },
+    { name: 'Flutter & Dart', description: 'Mobile Apps' },
+    { name: 'Kotlin & Swift', description: 'Native Plugins' },
+    { name: 'Firebase', description: 'Backend & LiveOps' },
   ]
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-white">
+    <div ref={containerRef} className="mx-auto max-w-5xl px-6">
       {/* Hero Section */}
-      <section className="relative py-12 lg:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            {/* Large Avatar */}
-            <div className="flex justify-center mb-6">
-              <Image
-                src="/avatar.png"
-                alt="Yaroslav Petrichka"
-                width={120}
-                height={120}
-                className="rounded-full ring-1 ring-black/10 shadow-xl grayscale contrast-[1.1]"
-                priority
-              />
-            </div>
-            
-            <h1 ref={titleRef} className="text-5xl md:text-6xl font-bold mb-8 text-gray-900">
-              Building Digital Products
-            </h1>
-            
-            <div ref={descriptionRef} className="max-w-3xl mx-auto mb-10">
-              <p className="text-xl text-gray-600 leading-relaxed">
-                Sharing Coding, AI & Tech knowledge.
-                <br />
-                Teaching through building.
-              </p>
-            </div>
-            
-            <div ref={buttonsRef} className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/posts"
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-gray-900 text-white rounded-lg hover:bg-black shadow-md hover:shadow-lg transition-all duration-200 font-medium"
-              >
-                Read Blog Posts
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-              <Link
-                href="/projects"
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-gray-700 border border-gray-300 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 font-medium"
-              >
-                View Projects
-              </Link>
-            </div>
-          </div>
+      <section className="pt-16 pb-12" data-animate>
+        <p className="meta-label mb-4">Solo Founder — Unity / Mobile</p>
+
+        <h1 className="text-5xl md:text-6xl font-semibold tracking-tight text-gray-900 max-w-3xl">
+          Building Digital Products
+        </h1>
+
+        <p className="text-xl text-gray-500 max-w-2xl mt-6">
+          Sharing Coding, AI &amp; Tech knowledge. Teaching through building.
+        </p>
+
+        <div className="mt-10 flex gap-6 items-center">
+          <Link
+            href="/posts"
+            className="inline-flex items-center justify-center px-6 py-2.5 bg-gray-900 text-white rounded-md hover:bg-gray-950 transition-colors duration-200 text-sm font-medium"
+          >
+            Read the blog
+          </Link>
+          <Link
+            href="/projects"
+            className="text-sm font-medium text-accent-primary hover:text-accent-hover transition-colors duration-200"
+          >
+            View projects →
+          </Link>
         </div>
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Technology Stack
-            </h2>
-            <p className="text-lg text-gray-600">
-              Tools and technologies I work with daily
-            </p>
-          </div>
+      <section className="py-12" data-animate>
+        <span className="meta-label">01 — Stack</span>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {techStack.map((tech, index) => {
-              const Icon = tech.icon
-              return (
-                <div
-                  key={index}
-                  className="bg-white p-6 rounded-xl border border-gray-200/80 hover:border-gray-300 hover:shadow-md transition-all duration-200 gsap-fade-in"
-                >
-                  <Icon className="w-8 h-8 text-gray-700 mb-4" />
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {tech.name}
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    {tech.description}
-                  </p>
-                </div>
-              )
-            })}
-          </div>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6 mt-6">
+          {techStack.map((tech, index) => (
+            <div key={tech.name} className="border-t border-border-primary pt-4">
+              <span className="font-mono text-xs text-gray-400">0{index + 1}</span>
+              <h3 className="text-base font-medium text-gray-900 mt-2">
+                {tech.name}
+              </h3>
+              <p className="text-sm text-gray-500">{tech.description}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Recent Posts Section */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-12">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                Recent Posts
-              </h2>
-              <p className="text-gray-600">
-                Latest thoughts and tutorials
-              </p>
-            </div>
-            <Link
-              href="/posts"
-              className="text-gray-700 hover:text-gray-900 font-medium flex items-center transition-colors duration-200"
-            >
-              View all posts
-              <ArrowRight className="ml-1 w-4 h-4" />
-            </Link>
-          </div>
+      <section className="py-12" data-animate>
+        <div className="flex justify-between items-baseline">
+          <span className="meta-label">02 — Recent posts</span>
+          <Link
+            href="/posts"
+            className="text-sm font-medium text-accent-primary hover:text-accent-hover transition-colors duration-200"
+          >
+            All posts →
+          </Link>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {recentPosts.map((post, index) => (
-              <article
-                key={post.slug}
-                className="bg-white border border-gray-200/80 rounded-xl overflow-hidden hover:border-gray-300 hover:shadow-md transition-all duration-200 gsap-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="p-6">
-                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      <time>{formatDate(post.frontmatter.date)}</time>
-                    </div>
-                  </div>
-                  
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                    <Link 
-                      href={`/posts/${post.slug}`}
-                      className="hover:text-gray-700 transition-colors duration-200"
-                    >
-                      {post.frontmatter.title}
-                    </Link>
+        <div className="mt-6">
+          {recentPosts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/posts/${post.slug}`}
+              className="group block border-t border-border-primary py-6"
+            >
+              <article className="md:grid md:grid-cols-[160px_1fr] gap-6">
+                <time
+                  dateTime={post.frontmatter.date}
+                  className="font-mono text-xs text-gray-500"
+                >
+                  {formatDate(post.frontmatter.date)}
+                </time>
+                <div className="mt-2 md:mt-0">
+                  <h3 className="text-xl font-semibold tracking-tight text-gray-900 group-hover:text-accent-primary transition-colors duration-200">
+                    {post.frontmatter.title}
                   </h3>
-                  
-                  <p className="text-gray-600">
+                  <p className="text-base text-gray-500 mt-1">
                     {getFirstSentence(post.excerpt || post.frontmatter.excerpt || '')}
                   </p>
                 </div>
               </article>
-            ))}
-          </div>
+            </Link>
+          ))}
         </div>
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Let's Build Something Together
-          </h2>
-          <p className="text-lg text-gray-600 mb-8">
-            Interested in collaboration or have questions about development?
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/support"
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-gray-900 text-white rounded-lg hover:bg-black shadow-md hover:shadow-lg transition-all duration-200 font-medium"
-            >
-              Get in Touch
-            </Link>
-            <a
-              href={`https://github.com/dreamcodestudio`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-gray-700 border border-gray-300 rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all duration-200 font-medium"
-            >
-              <GitBranch className="mr-2 w-5 h-5" />
-              View GitHub
-            </a>
-          </div>
+      <section className="border-t border-border-primary py-12 pb-16" data-animate>
+        <span className="meta-label">03 — Contact</span>
+
+        <h2 className="text-2xl font-semibold tracking-tight text-gray-900 mt-6">
+          Let&apos;s build something together.
+        </h2>
+        <p className="text-base text-gray-500 mt-2 max-w-2xl">
+          Interested in collaboration or have questions about development?
+        </p>
+
+        <div className="mt-8 flex gap-6 items-center">
+          <Link
+            href="/support"
+            className="inline-flex items-center justify-center px-6 py-2.5 bg-gray-900 text-white rounded-md hover:bg-gray-950 transition-colors duration-200 text-sm font-medium"
+          >
+            Get in touch
+          </Link>
+          <a
+            href="https://github.com/yapetrichka"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-mono text-xs uppercase tracking-label text-gray-500 hover:text-accent-primary transition-colors duration-200"
+          >
+            GitHub ↗
+          </a>
         </div>
       </section>
     </div>

@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Support | Yaroslav Petrichka',
-  description: "Get support for Game Aim Converter, CS2 Crosshairs, Bookaura, Game Meta Hub, Univerter, and TOshechka. I'll prioritize urgent issues, but please be patient—I'm probably coding somewhere. Thank you!",
+  description: "Get support for Game Aim Converter, CS2 Crosshairs, Bookaura, Univerter, and TOshechka. I'll prioritize urgent issues, but please be patient—I'm probably coding somewhere. Thank you!",
   openGraph: {
     title: 'Support | Yaroslav Petrichka',
-    description: "Get support for Game Aim Converter, CS2 Crosshairs, Bookaura, Game Meta Hub, Univerter, and TOshechka.",
+    description: "Get support for Game Aim Converter, CS2 Crosshairs, Bookaura, Univerter, and TOshechka.",
     type: 'website'
   }
 }
@@ -30,12 +30,6 @@ const supportLinks = [
     url: 'https://t.me/reading_tracker_bookaura'
   },
   {
-    id: 'game-meta-hub',
-    name: 'Game Meta Hub',
-    channel: 'Telegram Support',
-    url: 'https://t.me/game_meta_hub'
-  },
-  {
     id: 'univerter',
     name: 'Univerter',
     channel: 'Telegram Support',
@@ -51,38 +45,40 @@ const supportLinks = [
 
 export default function SupportPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-4xl mx-auto px-6 py-8">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-3 text-gray-900">Support</h1>
-          <p className="text-lg text-gray-600">
-            I'll prioritize urgent issues, but please be patient—I'm probably coding somewhere. Thank you!
-          </p>
-        </div>
+    <div className="mx-auto max-w-3xl px-6">
+      {/* Page Header */}
+      <header className="pt-12 pb-8">
+        <span className="meta-label">01 — Help</span>
+        <h1 className="text-4xl font-semibold tracking-tight text-gray-900 mt-4">
+          Support
+        </h1>
+        <p className="text-lg text-gray-500 max-w-2xl mt-4">
+          I&apos;ll prioritize urgent issues, but please be patient—I&apos;m probably coding somewhere. Thank you!
+        </p>
+      </header>
 
-        <ul className="divide-y divide-gray-200 border-b border-gray-200">
-          {supportLinks.map((item) => (
-            <li key={item.id} id={item.id} className="scroll-mt-20">
-              <a
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block py-4 px-2 -mx-2 rounded hover:bg-gray-50 transition-colors duration-150"
-              >
-                <h3 className="text-base font-semibold text-blue-600 hover:underline">
-                  {item.name}
-                </h3>
-                <div className="mt-1 flex items-center gap-3 text-xs text-gray-500">
-                  <span className="inline-flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-gray-400"></span>
-                    {item.channel}
-                  </span>
-                </div>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <ul className="border-b border-border-primary pb-0 mb-16">
+        {supportLinks.map((item) => (
+          <li key={item.id} id={item.id} className="scroll-mt-20">
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-baseline justify-between py-4 border-t border-border-primary"
+            >
+              <h3 className="text-base font-medium text-gray-900 group-hover:text-accent-primary transition-colors duration-200">
+                {item.name}
+              </h3>
+              <span className="font-mono text-xs text-gray-500">
+                Telegram{' '}
+                <span className="group-hover:text-accent-primary transition-colors duration-200">
+                  ↗
+                </span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

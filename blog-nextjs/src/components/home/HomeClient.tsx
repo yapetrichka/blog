@@ -52,14 +52,13 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
     <div ref={containerRef} className="mx-auto max-w-5xl px-6">
       {/* Hero Section */}
       <section className="pt-16 pb-12" data-animate>
-        <p className="meta-label mb-4">Solo Founder — Unity / Mobile</p>
-
         <h1 className="text-5xl md:text-6xl font-semibold tracking-tight text-gray-900 max-w-3xl">
-          Building Digital Products
+          Apps that do one thing well
         </h1>
 
         <p className="text-xl text-gray-500 max-w-2xl mt-6">
-          Sharing Coding, AI &amp; Tech knowledge. Teaching through building.
+          From a reading tracker to aim tools for gamers — I build my own
+          products and share what I learn along the way.
         </p>
 
         <div className="mt-10 flex gap-6 items-center">

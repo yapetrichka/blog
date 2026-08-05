@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Support | Yaroslav Petrichka',
-  description: "Get support for Game Aim Converter, CS2 Crosshairs, Bookaura, Univerter, and TOshechka. I'll prioritize urgent issues, but please be patient—I'm probably coding somewhere. Thank you!",
+  description: "Get support for Game Aim Converter, CS2 Crosshairs, Bookaura, and Univerter. I'll prioritize urgent issues, but please be patient—I'm probably coding somewhere. Thank you!",
   openGraph: {
     title: 'Support | Yaroslav Petrichka',
-    description: "Get support for Game Aim Converter, CS2 Crosshairs, Bookaura, Univerter, and TOshechka.",
+    description: "Get support for Game Aim Converter, CS2 Crosshairs, Bookaura, and Univerter.",
     type: 'website'
   }
 }
@@ -34,12 +34,6 @@ const supportLinks = [
     name: 'Univerter',
     channel: 'Telegram Support',
     url: 'https://t.me/unit_m_converter'
-  },
-  {
-    id: 'toshechka',
-    name: 'TOshechka',
-    channel: 'Telegram Support',
-    url: 'https://t.me/+R8ujYqFM7zM1YTVi'
   }
 ]
 

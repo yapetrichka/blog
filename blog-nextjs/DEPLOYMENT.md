@@ -1,130 +1,77 @@
-# Deployment Guide - Yandex Object Storage
+# 🚀 Деплой блога
 
-## Overview
-This guide explains how to deploy the Next.js blog to Yandex Object Storage for static hosting.
+Сайт хостится на **Firebase Hosting** — проект `game-aim-converter`, отдельный сайт `yapetrichka-blog`, кастомный домен **https://yapetrichka.com**.
 
-## Prerequisites
-- Yandex Cloud account
-- Yandex Object Storage bucket configured for static website hosting
-- AWS CLI or s3cmd configured for Yandex Object Storage
-
-## Project Build
-The project is configured for static export and ready for deployment:
+## Деплой одной командой
 
 ```bash
-# Build the project
+cd blog-nextjs
 npm run deploy
-
-# Preview locally (optional)
-npm run preview
 ```
 
-## Deploy to Yandex Object Storage
+Команда выполняет `next build` (статический экспорт в `dist/`) и `firebase deploy --only hosting:blog`.
 
-### 1. Configure AWS CLI for Yandex Object Storage
+## Пошагово
+
 ```bash
-aws configure --profile yandex
-# Enter your Yandex Object Storage credentials:
-# Access Key ID: Your access key
-# Secret Access Key: Your secret key
-# Default region: ru-central1
-# Output format: json
+npm install                            # если зависимости ещё не установлены
+npm run build                          # статический экспорт в dist/
+npm run preview                        # локальная проверка сборки (npx serve dist)
+firebase deploy --only hosting:blog    # выкладка
 ```
 
-### 2. Upload Files
+Требуется авторизация Firebase CLI: `firebase login`. CLI ставится глобально (`npm i -g firebase-tools`), в зависимостях проекта его нет.
+
+## Конфигурация
+
+- `next.config.js` — `output: 'export'`, `trailingSlash: true`, `distDir: 'dist'`, `images.unoptimized: true`, без `basePath`
+- `firebase.json` — `target: "blog"`, `public: "dist"`, `cleanUrls: true`, `trailingSlash: true`, immutable-кэш на `/_next/static/**`
+- `.firebaserc` — проект `game-aim-converter`, target `blog` → сайт `yapetrichka-blog`
+- `src/site.config.js` — `baseUrl`, единственный источник домена для `sitemap.xml`, `robots.txt` и Open Graph (`src/app/layout.tsx` читает его же)
+
+⚠️ В проекте `game-aim-converter` два hosting-сайта: `game-aim-converter` (лендинг aimconverter.app) и `yapetrichka-blog` (этот блог). Поэтому деплой всегда с явным таргетом — `--only hosting:blog`. Без таргета можно перезаписать лендинг.
+
+## Смена домена
+
+1. Поменять `baseUrl` в `src/site.config.js` — sitemap, robots и og:url подтянутся автоматически.
+2. Firebase Console → Hosting → сайт `yapetrichka-blog` → Add custom domain, прописать выданные A-записи у регистратора.
+3. Пересобрать и задеплоить.
+
+## Проверка после деплоя
+
+- [ ] https://yapetrichka.com/ открывается (200 OK), HTTPS валиден
+- [ ] https://www.yapetrichka.com/ редиректит на apex
+- [ ] `/posts/`, `/projects/`, `/support/` открываются
+- [ ] пост со слагом с пробелом открывается (`/posts/2023-01-29-Unity%20AutoKeystore/`)
+- [ ] `/sitemap.xml` и `/robots.txt` содержат актуальный домен
+- [ ] несуществующий URL отдаёт 404-страницу
+- [ ] CSS/GSAP-анимации работают, мобильная вёрстка в порядке
+
+Быстрый прогон:
+
 ```bash
-# Upload all files from dist folder
-aws s3 sync ./dist s3://your-bucket-name --profile yandex --delete
-
-# Or using s3cmd
-s3cmd sync ./dist/ s3://your-bucket-name --delete-removed
+for u in / /posts/ /projects/ /support/ /sitemap.xml /robots.txt; do
+  curl -s -o /dev/null -w "%{http_code} $u\n" "https://yapetrichka.com$u"
+done
 ```
 
-### 3. Configure Bucket for Static Website
-Set the following settings in Yandex Object Storage console:
+## Структура сборки
 
-- **Index Document**: `index.html`
-- **Error Document**: `404.html`
-- **Website Hosting**: Enabled
-
-### 4. Set Up Domain (Optional)
-1. Point your domain to the Object Storage endpoint
-2. Update `sitemap.xml` and `robots.txt` with your actual domain
-3. Configure HTTPS certificate if needed
-
-## File Structure
 ```
 dist/
-├── index.html              # Homepage
-├── 404.html               # Error page
-├── robots.txt             # SEO robots file
-├── sitemap.xml            # SEO sitemap
-├── .htaccess              # Apache configuration (if needed)
-├── _next/                 # Next.js assets
-├── posts/                 # Individual post pages
-│   ├── [slug]/
-│   │   └── index.html
-│   └── index.html         # Posts listing
-├── about/
-│   └── index.html         # About page
-├── categories/
-│   └── index.html         # Categories page
-└── tags/
-    └── index.html         # Tags page
+├── index.html          # главная
+├── 404.html            # страница ошибки (Firebase подхватывает автоматически)
+├── robots.txt
+├── sitemap.xml
+├── _next/              # ассеты Next.js (хэшированные, immutable-кэш)
+├── assets/             # картинки постов
+├── posts/
+│   ├── <slug>/index.html
+│   └── index.html
+├── projects/index.html
+└── support/index.html
 ```
 
-## Performance Features
-✅ Static generation for all pages  
-✅ Optimized bundle splitting  
-✅ GSAP animations with GPU acceleration  
-✅ Responsive images  
-✅ SEO-optimized meta tags  
-✅ Gzip compression configured  
-✅ Cache headers for assets  
+## История
 
-## Bundle Analysis
-- **Initial Load**: ~105 kB gzipped
-- **Page Size**: 176 B - 2.7 kB per page
-- **Total Pages**: 18 static pages generated
-- **Assets**: Optimized CSS and JS chunks
-
-## SEO Configuration
-- ✅ `robots.txt` with proper directives
-- ✅ `sitemap.xml` with all pages and posts
-- ✅ Meta tags for social sharing
-- ✅ Structured data ready
-- ✅ Clean URLs with trailing slashes
-
-## Security Headers
-The `.htaccess` file includes:
-- X-Frame-Options: SAMEORIGIN
-- X-Content-Type-Options: nosniff
-- X-XSS-Protection: 1; mode=block
-- Referrer-Policy: strict-origin-when-cross-origin
-
-## Monitoring
-After deployment, verify:
-1. All pages load correctly
-2. Navigation works properly
-3. Images and assets load
-4. GSAP animations work
-5. Mobile responsiveness
-6. SEO meta tags are present
-
-## Troubleshooting
-- **404 errors**: Ensure index.html is set as default document
-- **Missing assets**: Check if all files uploaded correctly
-- **Routing issues**: Verify .htaccess rules are applied
-- **Slow loading**: Enable Yandex CDN for better performance
-
-## Update Process
-For future updates:
-1. Run `npm run deploy`
-2. Sync new files: `aws s3 sync ./dist s3://your-bucket-name --profile yandex --delete`
-3. Clear CDN cache if using Yandex CDN
-
-## Domain Configuration
-Update these files with your actual domain:
-- `public/robots.txt` - Replace "your-domain.com"
-- `public/sitemap.xml` - Replace "your-domain.com" 
-- Social media meta tags in layout components 
+До августа 2026 сайт формально числился на Yandex Object Storage (`aws s3 sync ./dist s3://...`), домен был `www.dream-code-studio.com`. Схема больше не используется — редиректы со старого домена не настраивались.

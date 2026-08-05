@@ -9,7 +9,7 @@ Modern Next.js blog with GSAP animations, focused on Unity development, .NET pro
 - **GSAP Animations** with smooth scroll-triggered effects
 - **Responsive Design** optimized for all devices
 - **Dark/Light Theme** with system preference detection
-- **Static Export** ready for Yandex Object Storage
+- **Static Export** deployed to Firebase Hosting
 
 ### 📝 Content Management
 - **10 Migrated Posts** from Jekyll with full content
@@ -67,7 +67,7 @@ blog-nextjs/
 - **Animations**: GSAP with ScrollTrigger
 - **Content**: Gray-matter for Markdown processing
 - **Icons**: Lucide React
-- **Deployment**: Static export for Yandex Object Storage
+- **Deployment**: Static export on Firebase Hosting
 
 ## 🏃‍♂️ Getting Started
 
@@ -127,16 +127,15 @@ npm run lint     # Run ESLint
 
 ## 🚀 Deployment
 
-The project is configured for static hosting on Yandex Object Storage.
+The project is deployed to **Firebase Hosting** — project `game-aim-converter`, site `yapetrichka-blog`, custom domain https://yapetrichka.com.
 
 ### Quick Deploy
 ```bash
-# Build for production
+# Build the static export and upload it
 npm run deploy
-
-# Upload to Yandex Object Storage
-aws s3 sync ./dist s3://your-bucket-name --profile yandex --delete
 ```
+
+Requires the global Firebase CLI (`npm i -g firebase-tools`) and `firebase login`.
 
 For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
 

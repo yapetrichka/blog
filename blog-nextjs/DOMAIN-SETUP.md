@@ -25,11 +25,11 @@
 ```javascript
 const siteConfig = {
   // Измените на ваш домен
-  baseUrl: 'https://dreamcodestudio.com',
-  
-  siteName: 'Dream Code Studio',
-  description: 'Unity and .NET development blog with modern animations',
-  author: 'dreamcodestudio'
+  baseUrl: 'https://yapetrichka.com',
+
+  siteName: 'Yaroslav Petrichka',
+  description: 'Unity and mobile development blog',
+  author: 'Yaroslav Petrichka'
 }
 ```
 
@@ -47,15 +47,15 @@ npm run build
 ### Production:
 ```javascript
 const siteConfig = {
-  baseUrl: 'https://dreamcodestudio.com',
+  baseUrl: 'https://yapetrichka.com',
   // ...остальная конфигурация
 }
 ```
 
-### Staging:
+### Firebase preview URL:
 ```javascript
 const siteConfig = {
-  baseUrl: 'https://staging.dreamcodestudio.com',
+  baseUrl: 'https://yapetrichka-blog.web.app',
   // ...остальная конфигурация  
 }
 ```

@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build",
+    "deploy": "next build && firebase deploy --only hosting:blog",
     "preview": "npx serve dist",
     "setup": "node scripts/setup-env.js"
   },

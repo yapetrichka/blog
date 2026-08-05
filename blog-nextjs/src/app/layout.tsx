@@ -19,7 +19,11 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 })
 
+// Импортируем конфигурацию из локального файла
+const siteConfig = require('../site.config.js')
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.baseUrl),
   title: 'Yaroslav Petrichka - Solo Founder',
   description: 'Building digital products as a solo founder. Sharing insights on Unity, mobile development, and the journey of independent software creation.',
   keywords: ['Solo Founder', 'Unity', 'Flutter', 'Mobile Development', 'C#', 'Programming', 'Software Engineering', 'Indie Developer'],
@@ -28,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://www.dream-code-studio.com',
+    url: siteConfig.baseUrl,
     title: 'Yaroslav Petrichka - Solo Founder',
     description: 'Building digital products as a solo founder. Insights on independent software creation.',
     siteName: 'Yaroslav Petrichka',

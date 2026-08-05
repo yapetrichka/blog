@@ -51,14 +51,12 @@
 
 ### Deploy Commands
 ```bash
-# Build for production
+# Build the static export and upload it to Firebase Hosting
 npm run deploy
 
-# Upload to Yandex Object Storage
-aws s3 sync ./dist s3://your-bucket-name --profile yandex --delete
-
-# Or using s3cmd
-s3cmd sync ./dist/ s3://your-bucket-name --delete-removed
+# Or step by step
+npm run build
+firebase deploy --only hosting:blog
 ```
 
 ## 📊 Final Statistics
@@ -93,18 +91,15 @@ s3cmd sync ./dist/ s3://your-bucket-name --delete-removed
 ## 🎯 Post-Deployment Steps
 
 ### Immediate Actions
-1. Upload files to Yandex Object Storage
-2. Configure bucket for static website hosting
-3. Set index.html as default document
-4. Enable public access for website files
-5. Test all routes and functionality
+1. Run `npm run deploy` (build + Firebase Hosting upload)
+2. Verify the site on https://yapetrichka-blog.web.app
+3. Check `/sitemap.xml` and `/robots.txt` point at the live domain
+4. Test all routes and functionality
 
 ### Optional Enhancements
-1. Configure custom domain
-2. Enable Yandex CDN for performance
-3. Set up monitoring and analytics
-4. Configure HTTPS certificate
-5. Add Google Search Console
+1. Confirm the custom domain https://yapetrichka.com and its SSL certificate
+2. Set up monitoring and analytics
+3. Add Google Search Console
 
 ### Content Updates
 1. Update domain references in:
@@ -145,4 +140,4 @@ s3cmd sync ./dist/ s3://your-bucket-name --delete-removed
 **SEO**: Fully Configured ✅  
 **Documentation**: Complete ✅  
 
-The Unity & .NET Development Blog is now ready for production deployment to Yandex Object Storage! 🚀 
+The Unity & .NET Development Blog is now ready for production deployment to Firebase Hosting! 🚀 

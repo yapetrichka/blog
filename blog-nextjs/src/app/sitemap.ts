@@ -13,25 +13,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
-      url: `${baseUrl}/posts`,
+      url: `${baseUrl}/posts/`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/projects`,
+      url: `${baseUrl}/projects/`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/support`,
+      url: `${baseUrl}/support/`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -39,8 +39,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   // Dynamic blog posts
+  // Слаги берутся из имён файлов и могут содержать пробелы — кодируем их
   const postPages: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${baseUrl}/posts/${post.slug}`,
+    url: encodeURI(`${baseUrl}/posts/${post.slug}/`),
     lastModified: new Date(post.frontmatter.date),
     changeFrequency: 'monthly' as const,
     priority: 0.8,

@@ -26,3 +26,7 @@ blog-nextjs/out/
 # Next.js cache
 blog-nextjs/.cache/
 blog-nextjs/.vercel
+
+# firebase
+blog-nextjs/.firebase/
+blog-nextjs/firebase-debug.log

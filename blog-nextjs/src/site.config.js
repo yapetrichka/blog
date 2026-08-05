@@ -4,11 +4,10 @@
  */
 const siteConfig = {
   // Основной URL сайта
-  baseUrl: 'https://www.dream-code-studio.com',
-  
+  baseUrl: 'https://yapetrichka.com',
+
   // Альтернативные настройки для разных окружений:
-  // baseUrl: 'https://your-domain.com',               // Default
-  // baseUrl: 'https://staging.dreamcodestudio.com',   // Staging  
+  // baseUrl: 'https://yapetrichka-blog.web.app',      // Firebase preview URL
   // baseUrl: 'http://localhost:3000',                 // Development
   
   // Дополнительная информация о сайте

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "game-aim-converter"
+  },
+  "targets": {
+    "game-aim-converter": {
+      "hosting": {
+        "blog": [
+          "yapetrichka-blog"
+        ]
+      }
+    }
+  }
+}

@@ -55,7 +55,7 @@ const siteConfig = {
 ### Firebase preview URL:
 ```javascript
 const siteConfig = {
-  baseUrl: 'https://yapetrichka-blog.web.app',
+  baseUrl: 'https://yapetrichka.web.app',
   // ...остальная конфигурация  
 }
 ```

@@ -1,6 +1,6 @@
 # 🚀 Деплой блога
 
-Сайт хостится на **Firebase Hosting** — проект `game-aim-converter`, отдельный сайт `yapetrichka-blog`, кастомный домен **https://yapetrichka.com**.
+Сайт хостится на **Firebase Hosting** — проект `game-aim-converter`, отдельный сайт `yapetrichka`, кастомный домен **https://yapetrichka.com**.
 
 ## Деплой одной командой
 
@@ -26,15 +26,15 @@ firebase deploy --only hosting:blog    # выкладка
 
 - `next.config.js` — `output: 'export'`, `trailingSlash: true`, `distDir: 'dist'`, `images.unoptimized: true`, без `basePath`
 - `firebase.json` — `target: "blog"`, `public: "dist"`, `cleanUrls: true`, `trailingSlash: true`, immutable-кэш на `/_next/static/**`
-- `.firebaserc` — проект `game-aim-converter`, target `blog` → сайт `yapetrichka-blog`
+- `.firebaserc` — проект `game-aim-converter`, target `blog` → сайт `yapetrichka`
 - `src/site.config.js` — `baseUrl`, единственный источник домена для `sitemap.xml`, `robots.txt` и Open Graph (`src/app/layout.tsx` читает его же)
 
-⚠️ В проекте `game-aim-converter` два hosting-сайта: `game-aim-converter` (лендинг aimconverter.app) и `yapetrichka-blog` (этот блог). Поэтому деплой всегда с явным таргетом — `--only hosting:blog`. Без таргета можно перезаписать лендинг.
+⚠️ В проекте `game-aim-converter` два hosting-сайта: `game-aim-converter` (лендинг aimconverter.app) и `yapetrichka` (этот блог). Поэтому деплой всегда с явным таргетом — `--only hosting:blog`. Без таргета можно перезаписать лендинг.
 
 ## Смена домена
 
 1. Поменять `baseUrl` в `src/site.config.js` — sitemap, robots и og:url подтянутся автоматически.
-2. Firebase Console → Hosting → сайт `yapetrichka-blog` → Add custom domain, прописать выданные A-записи у регистратора.
+2. Firebase Console → Hosting → сайт `yapetrichka` → Add custom domain, прописать выданные A-записи у регистратора.
 3. Пересобрать и задеплоить.
 
 ## Проверка после деплоя

@@ -127,7 +127,7 @@ npm run lint     # Run ESLint
 
 ## 🚀 Deployment
 
-The project is deployed to **Firebase Hosting** — project `game-aim-converter`, site `yapetrichka-blog`, custom domain https://yapetrichka.com.
+The project is deployed to **Firebase Hosting** — project `game-aim-converter`, site `yapetrichka`, custom domain https://yapetrichka.com.
 
 ### Quick Deploy
 ```bash

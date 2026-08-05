@@ -7,7 +7,7 @@ const siteConfig = {
   baseUrl: 'https://yapetrichka.com',
 
   // Альтернативные настройки для разных окружений:
-  // baseUrl: 'https://yapetrichka-blog.web.app',      // Firebase preview URL
+  // baseUrl: 'https://yapetrichka.web.app',      // Firebase preview URL
   // baseUrl: 'http://localhost:3000',                 // Development
   
   // Дополнительная информация о сайте

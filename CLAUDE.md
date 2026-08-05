@@ -33,7 +33,7 @@ This is a **Next.js 15 blog with GSAP animations** focused on Unity and .NET dev
 **Styling**: Tailwind CSS with cyberpunk theme (Rajdhani + Orbitron fonts)
 **Animations**: GSAP with ScrollTrigger for smooth page transitions
 **Content**: Markdown posts with gray-matter frontmatter processing
-**Deployment**: Static export (`dist/`) on Firebase Hosting — project `game-aim-converter`, site `yapetrichka-blog`, domain https://yapetrichka.com. Deploy with `npm run deploy`; always pass the `hosting:blog` target, since the same Firebase project also hosts the aimconverter.app landing.
+**Deployment**: Static export (`dist/`) on Firebase Hosting — project `game-aim-converter`, site `yapetrichka`, domain https://yapetrichka.com. Deploy with `npm run deploy`; always pass the `hosting:blog` target, since the same Firebase project also hosts the aimconverter.app landing.
 
 ### File Structure
 ```

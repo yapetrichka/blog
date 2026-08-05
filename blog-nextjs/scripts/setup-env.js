@@ -33,7 +33,7 @@ if (fs.existsSync(configPath)) {
 console.log('')
 console.log('📋 Примеры настройки в src/site.config.js:')
 console.log('  baseUrl: "https://yapetrichka.com"             // Production')
-console.log('  baseUrl: "https://yapetrichka-blog.web.app"    // Firebase preview')
+console.log('  baseUrl: "https://yapetrichka.web.app"    // Firebase preview')
 console.log('  baseUrl: "http://localhost:3000"               // Development')
 console.log('')
 console.log('🚀 После изменения домена запустите: npm run build') 

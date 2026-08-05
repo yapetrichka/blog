@@ -92,7 +92,7 @@ firebase deploy --only hosting:blog
 
 ### Immediate Actions
 1. Run `npm run deploy` (build + Firebase Hosting upload)
-2. Verify the site on https://yapetrichka-blog.web.app
+2. Verify the site on https://yapetrichka.web.app
 3. Check `/sitemap.xml` and `/robots.txt` point at the live domain
 4. Test all routes and functionality
 

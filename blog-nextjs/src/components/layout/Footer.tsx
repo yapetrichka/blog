@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Github, Mail, Music, Video } from 'lucide-react'
+import { Github, Mail, Music, Send, Video } from 'lucide-react'
 import siteConfig from '@/site.config'
 
 export function Footer() {
@@ -14,6 +14,7 @@ export function Footer() {
   const socials = [
     { label: 'GitHub', href: siteConfig.social.github, icon: Github },
     { label: 'Email', href: `mailto:${siteConfig.social.email}`, icon: Mail },
+    { label: 'Telegram', href: siteConfig.social.telegram, icon: Send },
     { label: 'TikTok', href: siteConfig.social.tiktok, icon: Music },
     { label: 'YouTube', href: siteConfig.social.youtube, icon: Video },
   ]

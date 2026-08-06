@@ -49,35 +49,19 @@ export function Footer() {
           {/* Contact */}
           <div>
             <span className="meta-label">Contact</span>
-            <div className="flex flex-col items-start gap-2 mt-4">
-              <a
-                href={`mailto:${siteConfig.social.email}`}
-                className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200"
-              >
-                {siteConfig.social.email}
-              </a>
-              <a
-                href={siteConfig.social.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-xs uppercase tracking-label text-gray-500 hover:text-accent-primary transition-colors duration-200"
-              >
-                GitHub ↗
-              </a>
-              <div className="flex items-center gap-4 mt-2">
-                {socials.map(({ label, href, icon: Icon }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target={href.startsWith('mailto:') ? undefined : '_blank'}
-                    rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                    className="text-gray-400 hover:text-gray-900 transition-colors duration-200"
-                    aria-label={label}
-                  >
-                    <Icon className="w-4 h-4" />
-                  </a>
-                ))}
-              </div>
+            <div className="flex items-center gap-4 mt-4">
+              {socials.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith('mailto:') ? undefined : '_blank'}
+                  rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                  className="text-gray-400 hover:text-gray-900 transition-colors duration-200"
+                  aria-label={label}
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
         </div>

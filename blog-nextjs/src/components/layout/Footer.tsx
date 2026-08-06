@@ -21,18 +21,19 @@ export function Footer() {
   return (
     <footer className="bg-bg-primary border-t border-border-primary">
       <div className="max-w-5xl mx-auto px-6 py-12">
-        <div className="flex flex-col sm:flex-row justify-between gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           {/* Brand */}
-          <div className="flex items-baseline">
-            <span className="font-semibold text-sm tracking-tight text-gray-900">
+          <div>
+            <span className="block font-semibold text-sm tracking-tight text-gray-900">
               Yaroslav Petrichka
             </span>
-            <span className="meta-label ml-3">Solo Founder</span>
+            <span className="meta-label block mt-1">Solo Founder</span>
           </div>
 
-          {/* Nav + Social */}
-          <div className="flex items-center gap-8">
-            <nav className="flex items-center gap-6">
+          {/* Navigation */}
+          <div>
+            <span className="meta-label">Navigation</span>
+            <nav className="flex flex-col items-start gap-2 mt-4">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
@@ -43,19 +44,40 @@ export function Footer() {
                 </Link>
               ))}
             </nav>
-            <div className="flex items-center gap-4">
-              {socials.map(({ label, href, icon: Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target={href.startsWith('mailto:') ? undefined : '_blank'}
-                  rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                  className="text-gray-400 hover:text-gray-900 transition-colors duration-200"
-                  aria-label={label}
-                >
-                  <Icon className="w-4 h-4" />
-                </a>
-              ))}
+          </div>
+
+          {/* Contact */}
+          <div>
+            <span className="meta-label">Contact</span>
+            <div className="flex flex-col items-start gap-2 mt-4">
+              <a
+                href={`mailto:${siteConfig.social.email}`}
+                className="text-sm text-gray-600 hover:text-gray-900 transition-colors duration-200"
+              >
+                {siteConfig.social.email}
+              </a>
+              <a
+                href={siteConfig.social.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs uppercase tracking-label text-gray-500 hover:text-accent-primary transition-colors duration-200"
+              >
+                GitHub ↗
+              </a>
+              <div className="flex items-center gap-4 mt-2">
+                {socials.map(({ label, href, icon: Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target={href.startsWith('mailto:') ? undefined : '_blank'}
+                    rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                    className="text-gray-400 hover:text-gray-900 transition-colors duration-200"
+                    aria-label={label}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>

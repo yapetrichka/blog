@@ -95,7 +95,7 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
       </section>
 
       {/* Recent Posts Section */}
-      <section className="py-12" data-animate>
+      <section className="py-12 pb-16" data-animate>
         <div className="flex justify-between items-baseline">
           <span className="meta-label">02 — Recent posts</span>
           <Link
@@ -134,34 +134,6 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <section className="border-t border-border-primary py-12 pb-16" data-animate>
-        <span className="meta-label">03 — Contact</span>
-
-        <h2 className="text-2xl font-semibold tracking-tight text-gray-900 mt-6">
-          Let&apos;s build something together.
-        </h2>
-        <p className="text-base text-gray-500 mt-2 max-w-2xl">
-          Interested in collaboration or have questions about development?
-        </p>
-
-        <div className="mt-8 flex gap-6 items-center">
-          <Link
-            href="/support"
-            className="inline-flex items-center justify-center px-6 py-2.5 bg-gray-900 text-white rounded-md hover:bg-gray-950 transition-colors duration-200 text-sm font-medium"
-          >
-            Get in touch
-          </Link>
-          <a
-            href="https://github.com/yapetrichka"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-xs uppercase tracking-label text-gray-500 hover:text-accent-primary transition-colors duration-200"
-          >
-            GitHub ↗
-          </a>
-        </div>
-      </section>
     </div>
   )
 }
